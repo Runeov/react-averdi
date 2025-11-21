@@ -1,4 +1,78 @@
-# React + TypeScript + Vite
+# Averdi - Autorisert Regnskapsførerselskap
+
+A modern React website for Averdi, an authorized accounting firm in Norway.
+
+## 🚀 Deployment
+
+This project is configured for automatic deployment to GitHub Pages. See [`DEPLOYMENT.md`](DEPLOYMENT.md) for detailed deployment instructions.
+
+**Live Site:** `https://username.github.io/react-averdi/` (replace `username` with your GitHub username)
+
+### Quick Deploy
+
+1. Push to the `main` branch
+2. GitHub Actions automatically builds and deploys
+3. View deployment status in the **Actions** tab
+
+## 🛠️ Development
+
+### Prerequisites
+
+- Node.js 20 or higher
+- npm or yarn
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development Server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view the site.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
+react-averdi/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # GitHub Actions deployment workflow
+├── public/                     # Static assets
+├── src/
+│   ├── components/            # React components
+│   ├── lib/                   # Utility functions
+│   └── main.tsx              # Application entry point
+├── DEPLOYMENT.md              # Detailed deployment guide
+└── vite.config.ts            # Vite configuration
+```
+
+## 🎨 Tech Stack
+
+- **Framework:** React 19 with TypeScript
+- **Build Tool:** Vite 7
+- **Styling:** Tailwind CSS 4
+- **UI Components:** Radix UI
+- **Icons:** Lucide React
+- **Deployment:** GitHub Pages with GitHub Actions
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
