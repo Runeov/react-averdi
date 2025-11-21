@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
 import { Menu, X } from 'lucide-react';
-import { logoAverdi } from '../assets/images';
+import logoAverdi from '../assets/logo_averdi.avif';
 
 interface NavbarProps {
   currentPage?: string;

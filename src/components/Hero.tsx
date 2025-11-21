@@ -1,6 +1,6 @@
 import { Button } from './ui/button';
 import { scrollToSection } from './ui/utils';
-import { karasjokOver } from '../assets/images';
+import karasjokOver from '../assets/karasjok_Over.avif';
 
 export function Hero() {
   return (

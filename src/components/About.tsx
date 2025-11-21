@@ -1,5 +1,5 @@
 import { TeamCard } from './TeamCard';
-import { ingvaldAvis } from '../assets/images';
+import ingvaldAvis from '../assets/ingvald_avis.avif';
 
 
 interface AboutProps {

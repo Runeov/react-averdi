@@ -1,6 +1,6 @@
 import { Separator } from './ui/separator';
 import { scrollToSection } from './ui/utils';
-import { logoAverdi } from '../assets/images';
+import logoAverdi from '../assets/logo_averdi.avif';
 
 export function Footer() {
   return (
