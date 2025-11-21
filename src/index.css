@@ -1,0 +1,299 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+@layer base {
+  :root {
+    --font-size: 16px;
+    --background: 0 0% 100%;
+    --foreground: 210 29% 24%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 29% 24%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 29% 24%;
+    /* Averdi Professional Theme Defaults */
+    --primary: #1e3a8a; /* Deep Navy Blue */
+    --primary-foreground: #ffffff;
+    --secondary: #f39c12; /* Averdi Yellow */
+    --secondary-foreground: #ffffff;
+    --muted: 210 14% 95%;
+    --muted-foreground: 210 4% 46%;
+    --accent: #f1f5f9;
+    --accent-foreground: #1e3a8a;
+    --destructive: 354 70% 54%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 0% 0.1;
+    --input: 0 0% 0% 0;
+    --input-background: 210 17% 98%;
+    --switch-background: 210 14% 89%;
+    --ring: #1e3a8a;
+    --radius: 0.5rem;
+    --chart-1: #1e3a8a; /* Deep Navy Blue */
+    --chart-2: #f39c12; /* Averdi Yellow */
+    --chart-3: 204 70% 53%;
+    --chart-4: 145 63% 49%;
+    --chart-5: 280 40% 53%;
+    --sidebar: 210 17% 98%;
+    --sidebar-foreground: 210 29% 24%;
+    --sidebar-primary: #1e3a8a;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 43 94% 50%;
+    --sidebar-accent-foreground: 210 29% 24%;
+    --sidebar-border: 210 14% 89%;
+    --sidebar-ring: 217 91% 34%;
+
+    /* Averdi brand colors from logo */
+    --averdi-orange: #e67e22;
+    --averdi-yellow: #f39c12;
+    --averdi-dark: #2c3e50;
+    --averdi-light: #ecf0f1;
+
+    /* Typography variables */
+    --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    --font-family-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --font-family-display: "Inter Variable", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    /* Averdi Original variants */
+    --averdi-bold-orange: #d35400;
+    --averdi-bold-yellow: #e67e22;
+    --averdi-soft-orange: #f39c12;
+    --averdi-soft-yellow: #f1c40f;
+    --averdi-modern-orange: #ff6b35;
+    --averdi-modern-yellow: #ffc947;
+    --averdi-warm-orange: #e17055;
+    --averdi-warm-yellow: #fdcb6e;
+    --averdi-bright-orange: #ff7675;
+    --averdi-bright-yellow: #ffda79;
+    --averdi-sunset-orange: #fd7f28;
+    --averdi-sunset-pink: #ff6b9d;
+
+    /* Button color variations for business themes */
+    --btn-professional-blue: #2563eb;
+    --btn-professional-blue-hover: #1d4ed8;
+    --btn-trust-navy: #1e40af;
+    --btn-trust-navy-hover: #1e3a8a;
+    --btn-growth-green: #059669;
+    --btn-growth-green-hover: #047857;
+    --btn-conservative-gray: #374151;
+    --btn-conservative-gray-hover: #1f2937;
+    --btn-premium-purple: #7c3aed;
+    --btn-premium-purple-hover: #6d28d9;
+    --btn-warm-brown: #92400e;
+    --btn-warm-brown-hover: #78350f;
+    --btn-modern-teal: #0f766e;
+    --btn-modern-teal-hover: #134e4a;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 217 91% 34%; /* Deep Navy Blue */
+    --primary-foreground: 0 0% 10%;
+    --secondary: 43 94% 50%; /* Averdi Yellow */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 29% 28%;
+    --muted-foreground: 210 5% 76%;
+    --accent: 210 29% 28%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 6 78% 57%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 100% 0.1;
+    --input: 210 29% 28%;
+    --ring: 217 91% 34%;
+    --chart-1: 217 91% 34%; /* Deep Navy Blue */
+    --chart-2: 43 94% 50%; /* Averdi Yellow */
+    --chart-3: 204 70% 53%;
+    --chart-4: 145 63% 49%;
+    --chart-5: 280 40% 53%;
+    --sidebar: 210 29% 24%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 217 91% 34%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 43 94% 50%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 210 29% 28%;
+    --sidebar-ring: 217 91% 34%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Business color scheme classes */
+.theme-averdi-original {
+  --primary: #f39c12; /* Averdi Yellow/Orange */
+  --primary-foreground: #ffffff;
+  --secondary: #2c3e50; /* Dark Grey */
+  --secondary-foreground: #ffffff;
+  --ring: #f39c12;
+  --sidebar-primary: #f39c12;
+  --chart-1: #f39c12;
+  --radius: 0.5rem;
+}
+
+.theme-averdi-orange {
+  --primary: #e67e22;
+  --primary-foreground: #ffffff;
+  --secondary: #f39c12;
+  --secondary-foreground: #ffffff;
+  --ring: #e67e22;
+  --sidebar-primary: #e67e22;
+  --chart-1: #e67e22;
+  --radius: 0.5rem;
+}
+
+.theme-averdi-professional {
+  --primary: #1e3a8a; /* Deep Navy Blue */
+  --primary-foreground: #ffffff;
+  --secondary: #f39c12; /* Averdi Yellow Accent */
+  --secondary-foreground: #ffffff;
+  --accent: #f1f5f9;
+  --accent-foreground: #1e3a8a;
+  --ring: #1e3a8a;
+  --sidebar-primary: #1e3a8a;
+  --chart-1: #1e3a8a;
+  --radius: 0.5rem;
+}
+
+.theme-professional-blue {
+  --primary: var(--btn-professional-blue);
+  --ring: var(--btn-professional-blue);
+  --sidebar-primary: var(--btn-professional-blue);
+  --chart-1: var(--btn-professional-blue);
+}
+
+.theme-trust-navy {
+  --primary: var(--btn-trust-navy);
+  --ring: var(--btn-trust-navy);
+  --sidebar-primary: var(--btn-trust-navy);
+  --chart-1: var(--btn-trust-navy);
+}
+
+.theme-growth-green {
+  --primary: var(--btn-growth-green);
+  --ring: var(--btn-growth-green);
+  --sidebar-primary: var(--btn-growth-green);
+  --chart-1: var(--btn-growth-green);
+}
+
+.theme-conservative-gray {
+  --primary: var(--btn-conservative-gray);
+  --ring: var(--btn-conservative-gray);
+  --sidebar-primary: var(--btn-conservative-gray);
+  --chart-1: var(--btn-conservative-gray);
+}
+
+.theme-premium-purple {
+  --primary: var(--btn-premium-purple);
+  --ring: var(--btn-premium-purple);
+  --sidebar-primary: var(--btn-premium-purple);
+  --chart-1: var(--btn-premium-purple);
+}
+
+.theme-warm-brown {
+  --primary: var(--btn-warm-brown);
+  --ring: var(--btn-warm-brown);
+  --sidebar-primary: var(--btn-warm-brown);
+  --chart-1: var(--btn-warm-brown);
+}
+
+.theme-modern-teal {
+  --primary: var(--btn-modern-teal);
+  --ring: var(--btn-modern-teal);
+  --sidebar-primary: var(--btn-modern-teal);
+  --chart-1: var(--btn-modern-teal);
+}
+
+/* Averdi Original Variants */
+.theme-averdi-bold {
+  --primary: var(--averdi-bold-orange);
+  --secondary: var(--averdi-bold-yellow);
+  --ring: var(--averdi-bold-orange);
+  --chart-1: var(--averdi-bold-orange);
+  --chart-2: var(--averdi-bold-yellow);
+  font-family: var(--font-family-display);
+}
+
+.theme-averdi-bold h1,
+.theme-averdi-bold h2,
+.theme-averdi-bold h3 {
+  font-weight: 700 !important;
+  letter-spacing: -0.025em;
+}
+
+.theme-averdi-soft {
+  --primary: var(--averdi-soft-orange);
+  --secondary: var(--averdi-soft-yellow);
+  --ring: var(--averdi-soft-orange);
+  --chart-1: var(--averdi-soft-orange);
+  --chart-2: var(--averdi-soft-yellow);
+  --muted: #fef9e7;
+  --accent: #fff8dc;
+}
+
+.theme-averdi-soft h1,
+.theme-averdi-soft h2,
+.theme-averdi-soft h3 {
+  font-weight: 300 !important;
+  letter-spacing: 0.01em;
+}
+
+.theme-averdi-modern {
+  --primary: var(--averdi-modern-orange);
+  --secondary: var(--averdi-modern-yellow);
+  --ring: var(--averdi-modern-orange);
+  --chart-1: var(--averdi-modern-orange);
+  --chart-2: var(--averdi-modern-yellow);
+  --radius: 0.75rem;
+  font-family: var(--font-family-display);
+}
+
+.theme-averdi-modern h1,
+.theme-averdi-modern h2,
+.theme-averdi-modern h3 {
+  font-weight: 600 !important;
+  letter-spacing: -0.02em;
+}
+
+.theme-averdi-classic {
+  --primary: var(--averdi-orange);
+  --secondary: var(--averdi-yellow);
+  --ring: var(--averdi-orange);
+  --chart-1: var(--averdi-orange);
+  --chart-2: var(--averdi-yellow);
+  --foreground: #2d3748;
+  font-family: var(--font-family-serif);
+}
+
+.theme-averdi-classic h1,
+.theme-averdi-classic h2,
+.theme-averdi-classic h3 {
+  font-family: var(--font-family-serif) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.015em;
+}
+
+.theme-averdi-warm {
+  --primary: var(--averdi-warm-orange);
+  --secondary: var(--averdi-warm-yellow);
+  --ring: var(--averdi-warm-orange);
+  --chart-1: var(--averdi-warm-orange);
+  --chart-2: var(--averdi-warm-yellow);
+  --background: #fefbf3;
+  --muted: #faf6ed;
+  --accent: #fff4e1;
+}
+
+html {
+  font-size: var(--font-size);
+}
