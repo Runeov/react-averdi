@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
 import { Menu, X } from 'lucide-react';
+import { logoAverdi } from '../assets/images';
 
 interface NavbarProps {
   currentPage?: string;
@@ -50,7 +51,7 @@ export function Navbar({ currentPage = 'home', onNavigate }: NavbarProps) {
               onClick={() => handleNavigation('home')}
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
-              <img src="/logo_averdi.avif" alt="Averdi Logo" className="h-24 w-auto" />
+              <img src={logoAverdi} alt="Averdi Logo" className="h-24 w-auto" />
             </button>
           </div>
 

@@ -1,5 +1,6 @@
 import { Button } from './ui/button';
 import { scrollToSection } from './ui/utils';
+import { karasjokOver } from '../assets/images';
 
 export function Hero() {
   return (
@@ -8,7 +9,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         <img
-          src="/karasjok_Over.avif"
+          src={karasjokOver}
           alt="Profesjonelt kontormiljø hos Averdi"
           className="w-full h-full object-cover"
           fetchPriority="high"
