@@ -58,9 +58,6 @@ export function Services() {
       
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            Komplette økonomitjenester
-          </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Våre tjenester
           </h2>

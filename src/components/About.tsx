@@ -61,8 +61,23 @@ export function About({ onViewProfile }: AboutProps) {
 
 
   return (
-    <section id="about" className="py-10">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6">
+    <section id="about" className="py-16 bg-gradient-to-br from-primary/5 via-background to-secondary/30 relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Om Averdi
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Lær mer om vårt erfarne team og hva som gjør oss til en pålitelig økonomipartner
+          </p>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Image container - acts as background on mobile, side image on desktop */}
           <div className="relative rounded-xl overflow-hidden shadow-lg lg:h-full min-h-[500px] lg:min-h-[500px]">
