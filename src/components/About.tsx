@@ -14,7 +14,8 @@ interface TeamCardProps {
 function TeamCard({ name, role, email, phone, photo, description, onViewProfile }: TeamCardProps) {
   return (
     <div className="relative bg-white rounded-xl shadow-lg border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col overflow-hidden group">
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 to-primary/10"></div>
+      {/* Updated to Averdi colors */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#E86C1F] to-[#F4B223]"></div>
       <div className="p-6 text-center flex flex-col h-full">
         <div className="mb-6 flex-shrink-0 relative inline-block mx-auto">
           <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

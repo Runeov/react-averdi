@@ -115,7 +115,8 @@ export function NewsSection() {
                 key={index} 
                 className="flex flex-col h-full relative bg-white rounded-xl shadow-lg border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group overflow-hidden"
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 to-primary/10"></div>
+                {/* Updated to Averdi colors */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#E86C1F] to-[#F4B223]"></div>
                 
                 <div className="p-6 flex flex-col h-full">
                   <div className="flex items-center gap-2 text-sm text-primary font-medium mb-3">
