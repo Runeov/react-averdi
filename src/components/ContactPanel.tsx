@@ -189,70 +189,78 @@ export function ContactPanel() {
                   </h3>
                 </div>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="font-medium">
+                        Navn *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
+                      />
+                    </div>
+                    <div>
+                      <label className="font-medium">
+                        Bedrift
+                      </label>
+                      <input
+                        type="text"
+                        value={formData.company}
+                        onChange={(e) => setFormData({...formData, company: e.target.value})}
+                        className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <Label htmlFor="name" className="text-base font-medium">Navn *</Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    <label className="font-medium">
+                      E-post *
+                    </label>
+                    <input
+                      type="email"
                       required
-                      className="mt-1.5 h-12 text-base border-2 hover:border-primary/50 focus:border-primary focus:ring-primary/20"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
                     />
                   </div>
+
                   <div>
-                    <Label htmlFor="company" className="text-base font-medium">Bedrift</Label>
-                    <Input
-                      id="company"
-                      value={formData.company}
-                      onChange={(e) => setFormData({...formData, company: e.target.value})}
-                      className="mt-1.5 h-12 text-base border-2 hover:border-primary/50 focus:border-primary focus:ring-primary/20"
+                    <label className="font-medium">
+                      Telefon
+                    </label>
+                    <input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <Label htmlFor="email" className="text-base font-medium">E-post *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    required
-                    className="mt-1.5 h-12 text-base border-2 hover:border-primary/50 focus:border-primary focus:ring-primary/20"
-                  />
-                </div>
+                  <div>
+                    <label className="font-medium">
+                      Melding *
+                    </label>
+                    <textarea 
+                      required 
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      placeholder="Fortell oss hvordan vi kan hjelpe deg..."
+                      className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border focus:border-primary shadow-sm rounded-lg"
+                    />
+                  </div>
 
-                <div>
-                  <Label htmlFor="phone" className="text-base font-medium">Telefon</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="mt-1.5 h-12 text-base border-2 hover:border-primary/50 focus:border-primary focus:ring-primary/20"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="message" className="text-base font-medium">Melding *</Label>
-                  <Textarea
-                    id="message"
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    placeholder="Fortell oss hvordan vi kan hjelpe deg..."
-                    required
-                    className="mt-1.5 text-base border-2 hover:border-primary/50 focus:border-primary focus:ring-primary/20 resize-none"
-                  />
-                </div>
-
-                <Button type="submit" className="w-full h-14 text-lg font-semibold bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl">
-                  <Mail className="mr-2 h-5 w-5" />
-                  Send melding
-                </Button>
-              </form>
+                  <button
+                    type="submit"
+                    className="w-full px-4 py-2 text-white font-medium bg-primary hover:bg-primary/90 active:bg-primary rounded-lg duration-150"
+                  >
+                    Send melding
+                  </button>
+                </form>
             </CardContent>
             </Card>
         </div>
