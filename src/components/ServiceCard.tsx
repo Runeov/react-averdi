@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { Card, CardContent } from './ui/card';
-import { Button } from './ui/button';
-import { ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
+import { ChevronUp, ArrowRight } from 'lucide-react';
 
 interface ServiceCardProps {
   icon: string | React.ReactElement;
@@ -11,15 +9,15 @@ interface ServiceCardProps {
   className?: string;
 }
 
-export function ServiceCard({ icon, title, bullets, expandedContent, className }: ServiceCardProps) {
+export function ServiceCard({ icon, title, bullets, expandedContent, className = '' }: ServiceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <Card className={`group relative overflow-hidden border-primary/10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white/50 backdrop-blur-sm ${className}`}>
+    <div className={`group relative rounded-xl border border-primary/10 bg-white/50 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden ${className}`}>
       {/* Background hover effect for the whole card */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
       
-      <CardContent className="p-8 relative z-10">
+      <div className="p-8 relative z-10">
         <div className="flex flex-col sm:flex-row items-start gap-6 mb-6">
           
           {/* Forenklet Ikon-container uten stil/boks */}
@@ -55,10 +53,9 @@ export function ServiceCard({ icon, title, bullets, expandedContent, className }
                   </div>
                 </div>
 
-                <Button
-                  variant="ghost"
+                <button
                   onClick={() => setIsExpanded(!isExpanded)}
-                  className="p-0 h-auto text-primary hover:text-primary/80 hover:bg-transparent font-medium flex items-center gap-2 group/btn"
+                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground p-0 h-auto text-primary hover:text-primary/80 bg-transparent gap-2 group/btn"
                 >
                   {isExpanded ? 'Vis mindre' : 'Les mer'}
                   {isExpanded ? (
@@ -66,12 +63,12 @@ export function ServiceCard({ icon, title, bullets, expandedContent, className }
                   ) : (
                     <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   )}
-                </Button>
+                </button>
               </>
             )}
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }
