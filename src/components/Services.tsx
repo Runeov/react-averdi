@@ -1,9 +1,13 @@
 import { ServiceCard } from './ServiceCard';
+import regnskapIcon from '../assets/regnskap.avif';
+import lonnIcon from '../assets/lonn.avif';
+import raadgivingIcon from '../assets/raadgiving.avif';
+import fakturaIcon from '../assets/faktura.avif';
 
 export function Services() {
   const services = [
     {
-      icon: "📊",
+      icon: regnskapIcon,
       title: "Regnskap",
       bullets: [
         "Løpende bokføring og bilagsbehandling",
@@ -13,7 +17,7 @@ export function Services() {
       expandedContent: "Vi tar hånd om hele regnskapsførselen for din bedrift. Fra daglig bokføring til årsoppgjør sørger vi for at alt er i orden. Våre autoriserte regnskapsførere har lang erfaring med alt fra små enkeltpersonforetak til større AS-selskaper."
     },
     {
-      icon: "💰",
+      icon: lonnIcon,
       title: "Lønn",
       bullets: [
         "Lønnskjøring og lønnsslipp",
@@ -23,7 +27,7 @@ export function Services() {
       expandedContent: "Vårt lønnssystem håndterer alt fra lønnskjøring til rapportering til myndighetene. Vi sørger for at alle ansatte får riktig lønn til rett tid, og at alle lovpålagte rapporter sendes inn korrekt og i tide."
     },
     {
-      icon: "📄",
+      icon: fakturaIcon,
       title: "Fakturering",
       bullets: [
         "Automatisert fakturautsendelse",
@@ -33,7 +37,7 @@ export function Services() {
       expandedContent: "Vi hjelper deg med effektiv fakturering som forbedrer cash flow. Våre systemer automatiserer fakturautsendelse og purringer, slik at du kan fokusere på kjernevirksomheten din."
     },
     {
-      icon: "🎯",
+      icon: raadgivingIcon,
       title: "Rådgivning",
       bullets: [
         "Strategisk økonomisk planlegging",
