@@ -49,13 +49,22 @@ export function Services() {
   ];
 
   return (
-    <section id="services" className="py-10">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl mb-4">
+    <section id="services" className="py-16 bg-gradient-to-br from-primary/5 via-background to-secondary/30 relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+            Komplette økonomitjenester
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Våre tjenester
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Vi tilbyr komplette økonomitjenester tilpasset din bedrifts behov
           </p>
         </div>
