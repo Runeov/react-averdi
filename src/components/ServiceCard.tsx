@@ -19,8 +19,8 @@ export function ServiceCard({ icon, title, bullets, expandedContent, className }
       <CardContent className="p-6">
         <div className="flex items-start gap-4 mb-4">
           <div className="flex-shrink-0">
-            {typeof icon === 'string' && icon.startsWith('/') ? (
-              <img src={icon} alt={`${title} icon`} className="w-12 h-12" />
+            {typeof icon === 'string' && (icon.startsWith('/') || icon.includes('.avif') || icon.includes('.png') || icon.includes('.jpg') || icon.includes('.jpeg') || icon.includes('.svg')) ? (
+              <img src={icon} alt={`${title} icon`} className="w-12 h-12 object-contain" />
             ) : typeof icon === 'string' ? (
               <div className="text-3xl">{icon}</div>
             ) : (
