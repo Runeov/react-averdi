@@ -48,7 +48,7 @@ export function ContactPanel() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <Card className="shadow-sm">
+            <Card className="relative bg-white shadow-2xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-primary/20">
               <CardContent className="p-6">
                 <h3 className="text-xl mb-6">Kom i kontakt</h3>
                 
@@ -131,7 +131,7 @@ export function ContactPanel() {
               </CardContent>
             </Card>
             {/* Google Maps */}
-            <Card className="shadow-sm">
+            <Card className="relative bg-white shadow-2xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-primary/20">
               <CardContent className="p-6">
                 <h3 className="text-xl mb-4">Finn oss på kartet</h3>
                 <div className="space-y-4">
