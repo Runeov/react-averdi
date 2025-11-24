@@ -285,7 +285,7 @@ export function About({ onViewProfile }: AboutProps) {
               Vårt Team
             </div>
             <h3 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Møt ekspertene
+              Våre ansatte
             </h3>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Våre erfarne regnskapsførere og økonomirådgivere står klare til å hjelpe deg
