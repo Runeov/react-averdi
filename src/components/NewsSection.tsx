@@ -103,7 +103,7 @@ export function NewsSection() {
         ) : (
           <div className="grid md:grid-cols-3 gap-6">
             {news.map((item, index) => (
-              <Card key={index} className="flex flex-col h-full hover:shadow-md transition-shadow">
+              <Card key={index} className="flex flex-col h-full relative bg-white shadow-2xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-primary/20">
                 <CardHeader>
                   <div className="text-sm text-muted-foreground mb-2">{item.pubDate}</div>
                   <CardTitle className="text-xl mb-2 line-clamp-2" title={item.title}>

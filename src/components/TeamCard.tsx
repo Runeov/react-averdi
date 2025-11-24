@@ -14,9 +14,9 @@ interface TeamCardProps {
 
 export function TeamCard({ name, role, email, phone, photo, description, onViewProfile }: TeamCardProps) {
   return (
-    <Card className="relative bg-white shadow-2xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-primary/20">
-      <CardContent className="p-6 text-center">
-        <div className="mb-4">
+    <Card className="relative bg-white shadow-2xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-primary/20 h-full flex flex-col">
+      <CardContent className="p-6 text-center flex flex-col h-full">
+        <div className="mb-4 flex-shrink-0">
           {photo ? (
             <img
               src={photo}
@@ -32,16 +32,17 @@ export function TeamCard({ name, role, email, phone, photo, description, onViewP
           )}
         </div>
         
-        <h3 className="text-lg mb-1">{name}</h3>
-        <p className="text-primary mb-3">{role}</p>
+        <h3 className="text-lg mb-1 flex-shrink-0">{name}</h3>
+        <p className="text-primary mb-3 flex-shrink-0">{role}</p>
         
-        {description && (
-          <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-            {description}
+        {/* Always render description space for consistent height */}
+        <div className="mb-4 flex-1 flex items-center justify-center min-h-[60px]">
+          <p className="text-sm text-muted-foreground leading-relaxed text-center">
+            {description || "Engasjert regnskapsfører dedikert til å hjelpe våre kunder med profesjonelle økonomitjenester."}
           </p>
-        )}
+        </div>
         
-        <div className="space-y-2">
+        <div className="space-y-2 mt-auto">
           {onViewProfile && (
             <Button
               variant="outline"

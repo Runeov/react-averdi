@@ -46,7 +46,7 @@ export function About({ onViewProfile }: AboutProps) {
       role: "Regnskapsfører",
       email: "tonje.iren.anti@averdi.no",
       phone: "480 23 265",
-      description: "Sikrer knirkefritt drift. En engasjert støttespiller som passer på at regnskapet ditt alltid er oppdatert."
+      description: "En engasjert støttespiller som passer på at regnskapet ditt alltid er oppdatert."
     },
     {
       id: "linda-kildedam",
