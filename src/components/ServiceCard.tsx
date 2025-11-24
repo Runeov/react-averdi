@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 interface ServiceCardProps {
-  icon: string | React.ReactElement;
+  icon:React.ReactElement;
   title: string;
   bullets: string[];
   expandedContent?: string;
@@ -19,7 +19,7 @@ export function ServiceCard({ icon, title, bullets, expandedContent, className }
       <CardContent className="p-6">
         <div className="flex items-start gap-4 mb-4">
           <div className="flex-shrink-0">
-            {typeof icon === 'string' && icon.startsWith('/') ? (
+            {typeof icon === 'string' && icon ? (
               <img src={icon} alt={`${title} icon`} className="w-12 h-12" />
             ) : typeof icon === 'string' ? (
               <div className="text-3xl">{icon}</div>
