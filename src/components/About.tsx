@@ -1,6 +1,6 @@
 import { Mail, Phone, User, Linkedin, MessageCircle } from 'lucide-react';
 
-// --- TeamCard Component (Inkludert her for å unngå importfeil) ---
+// --- TeamCard Component (For resten av teamet - Tilbake til blå/primary) ---
 interface TeamCardProps {
   name: string;
   role: string;
@@ -14,8 +14,9 @@ interface TeamCardProps {
 function TeamCard({ name, role, email, phone, photo, description, onViewProfile }: TeamCardProps) {
   return (
     <div className="relative bg-white rounded-xl shadow-lg border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col overflow-hidden group">
-      {/* Updated to Averdi colors */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#E86C1F] to-[#F4B223]"></div>
+      {/* Reverted to standard Primary (Blue) gradient */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 to-primary/10"></div>
+      
       <div className="p-6 text-center flex flex-col h-full">
         <div className="mb-6 flex-shrink-0 relative inline-block mx-auto">
           <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -228,17 +229,19 @@ export function About({ onViewProfile }: AboutProps) {
           </div>
         </div>
 
-        {/* --- General Manager Section --- */}
+        {/* --- General Manager Section (Ingvald) - Kept with Averdi Colors --- */}
         {generalManager && (
           <div className="mb-24">
              <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-primary/10 relative group">
-                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-secondary"></div>
-                <div className="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#E86C1F]/10 relative group hover:border-[#E86C1F]/30 transition-colors duration-300">
+                {/* Averdi Colors preserved here */}
+                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#E86C1F] to-[#F4B223]"></div>
+                
+                <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#E86C1F]/5 rounded-full blur-3xl group-hover:bg-[#E86C1F]/10 transition-colors"></div>
                 
                 <div className="p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center relative z-10">
                    <div className="flex-1 text-center md:text-left space-y-6">
-                      <div className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-2">
+                      <div className="inline-block px-4 py-1.5 bg-[#E86C1F]/10 text-[#E86C1F] rounded-full text-sm font-semibold mb-2">
                         Daglig Leder
                       </div>
                       <h3 className="text-3xl sm:text-4xl font-bold text-gray-900">
@@ -254,15 +257,15 @@ export function About({ onViewProfile }: AboutProps) {
                       </div>
                       
                       <div className="pt-6 flex flex-wrap gap-6 justify-center md:justify-start items-center border-t border-gray-100 mt-6">
-                        <a href={`mailto:${generalManager.email}`} className="text-primary hover:text-primary/80 font-medium flex items-center gap-2 transition-colors">
-                          <span className="p-2 bg-primary/5 rounded-full">
+                        <a href={`mailto:${generalManager.email}`} className="text-[#E86C1F] hover:text-[#E86C1F]/80 font-medium flex items-center gap-2 transition-colors">
+                          <span className="p-2 bg-[#E86C1F]/10 rounded-full">
                             <Mail className="h-4 w-4" />
                           </span>
                           {generalManager.email}
                         </a>
                         <span className="text-gray-300 hidden md:inline h-6 w-px bg-gray-200"></span>
                         <div className="text-muted-foreground flex items-center gap-2">
-                           <span className="p-2 bg-primary/5 rounded-full">
+                           <span className="p-2 bg-[#E86C1F]/10 rounded-full text-[#E86C1F]">
                              <Phone className="h-4 w-4" />
                            </span>
                            {generalManager.phone}
