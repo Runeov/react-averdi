@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 
 interface ServiceCardProps {
   icon: string | React.ReactElement;
@@ -15,53 +15,62 @@ export function ServiceCard({ icon, title, bullets, expandedContent, className }
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <Card className={`shadow-sm hover:shadow-md transition-shadow ${className}`}>
-      <CardContent className="p-6">
-        <div className="flex items-start gap-4 mb-4">
+    <Card className={`group relative overflow-hidden border-primary/10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white/50 backdrop-blur-sm ${className}`}>
+      {/* Background hover effect for the whole card */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
+      
+      <CardContent className="p-8 relative z-10">
+        <div className="flex flex-col sm:flex-row items-start gap-6 mb-6">
+          
+          {/* Forenklet Ikon-container uten stil/boks */}
           <div className="flex-shrink-0">
             {typeof icon === 'string' ? (
               <img src={icon} alt={`${title} icon`} className="w-12 h-12 object-contain" />
             ) : (
-              <div className="w-12 h-12">{icon}</div>
+              <div className="w-12 h-12 text-primary">{icon}</div>
             )}
           </div>
-          <div className="flex-1">
-            <h3 className="text-xl mb-3">{title}</h3>
-            <ul className="space-y-2 mb-4">
+
+          <div className="flex-1 w-full">
+            <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+              {title}
+            </h3>
+            
+            <ul className="space-y-3 mb-6">
               {bullets.map((bullet, index) => (
-                <li key={index} className="flex items-start gap-2 text-muted-foreground">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
+                <li key={index} className="flex items-start gap-3 text-muted-foreground text-sm sm:text-base">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0 shadow-[0_0_8px_rgba(var(--primary),0.5)]"></span>
                   <span>{bullet}</span>
                 </li>
               ))}
             </ul>
+
+            {expandedContent && (
+              <>
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'opacity-100 max-h-96 mb-6' : 'opacity-0 max-h-0'}`}>
+                  <div className="pt-4 border-t border-primary/10">
+                    <p className="text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-top-2 duration-300">
+                      {expandedContent}
+                    </p>
+                  </div>
+                </div>
+
+                <Button
+                  variant="ghost"
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="p-0 h-auto text-primary hover:text-primary/80 hover:bg-transparent font-medium flex items-center gap-2 group/btn"
+                >
+                  {isExpanded ? 'Vis mindre' : 'Les mer'}
+                  {isExpanded ? (
+                    <ChevronUp className="h-4 w-4 transition-transform" />
+                  ) : (
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                  )}
+                </Button>
+              </>
+            )}
           </div>
         </div>
-        
-        {expandedContent && (
-          <>
-            <Button
-              variant="ghost"
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="p-0 h-auto text-primary hover:text-primary/80 font-medium flex items-center gap-1"
-            >
-              Les mer
-              {isExpanded ? (
-                <ChevronUp className="h-4 w-4" />
-              ) : (
-                <ChevronDown className="h-4 w-4" />
-              )}
-            </Button>
-            
-            {isExpanded && (
-              <div className="mt-4 pt-4 border-t">
-                <p className="text-muted-foreground leading-relaxed">
-                  {expandedContent}
-                </p>
-              </div>
-            )}
-          </>
-        )}
       </CardContent>
     </Card>
   );

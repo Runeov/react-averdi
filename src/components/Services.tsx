@@ -49,24 +49,27 @@ export function Services() {
   ];
 
   return (
-    <section id="services" className="py-16 bg-gradient-to-br from-primary/5 via-background to-secondary/30 relative">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
+    <section id="services" className="py-24 relative overflow-hidden bg-background">
+      {/* Background decoration - matching Hero style */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/3 left-0 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-0 right-0 translate-x-1/3 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[100px]"></div>
       </div>
       
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            Våre tjenester
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            Våre Tjenester
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
+            Komplette økonomitjenester
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Vi tilbyr komplette økonomitjenester tilpasset din bedrifts behov
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Vi kombinerer moderne teknologi med personlig oppfølging for å gi din bedrift den beste hverdagen.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
           {services.map((service, index) => (
             <ServiceCard
               key={index}
