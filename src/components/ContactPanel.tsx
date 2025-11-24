@@ -1,8 +1,5 @@
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
-import { Label } from './ui/label';
 import { Phone, Mail, MapPin, Copy } from 'lucide-react';
 import { useState } from 'react';
 import contactLogo from '../assets/contact.avif';
