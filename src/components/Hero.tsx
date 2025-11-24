@@ -4,52 +4,66 @@ import karasjokOver from '../assets/karasjok_Over.avif';
 
 export function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center relative bg-gradient-to-br from-background to-secondary/20">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <img
-          src={karasjokOver}
-          alt="Profesjonelt kontormiljø hos Averdi"
-          className="w-full h-full object-cover"
-          fetchPriority="high"
-        />
+    <div className="bg-gradient-to-br from-primary/5 via-background to-secondary/30 relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
       </div>
+      <div className="px-4 sm:px-10 py-12 md:py-16">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="grid lg:grid-cols-2 justify-center items-center gap-x-12 gap-y-16">
+            <div>
+              <div className="max-w-3xl max-lg:mx-auto max-lg:text-center">
+                <p className="mb-2 font-medium text-indigo-600 uppercase">
+                  <span className="rotate-90 inline-block mr-2">|</span> 
+                  Regnskap og økonomitjenester
+                </p>
+                <h1 className="text-slate-900 md:text-5xl text-4xl font-bold !leading-tight">
+                  Velkommen til Averdi
+                </h1>
+                <p className="text-slate-600 text-base leading-relaxed mt-6 mb-4">
+                  Din partner for trygg økonomistyring – med faglig tyngde og hjertet i Finnmark
+                </p>
+                <p className="text-slate-600 text-base leading-relaxed mt-6">
+                  Siden 1999 har vi vært en trygg havn for norske bedrifter. Men trygghet betyr ikke stillstand. Hos Averdi møter du en unik kombinasjon: autoriserte regnskapsførere med lang erfaring som kan lovverket til fingerspissene sammen med våre yngre digitale hoder sørger vi for at du utnytter dagens muligheter fullt ut.
+                </p>
 
-      {/* Content */}
-      <div className="relative z-20 max-w-screen-xl mx-auto px-4 sm:px-6 w-full py-20">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-8 drop-shadow-lg">
-            Velkommen til Averdi
-          </h1>
-          
-          <p className="text-xl sm:text-2xl mb-8 leading-relaxed font-medium drop-shadow-md opacity-90">
-            Din partner for trygg økonomistyring – med faglig tyngde og hjertet i Finnmark
-          </p>
-          
-          <p className="text-lg sm:text-xl mb-12 leading-relaxed drop-shadow-md opacity-90 max-w-3xl mx-auto hidden md:block">
-            Siden 1999 har vi vært en trygg havn for norske bedrifter. Men trygghet betyr ikke stillstand. Hos Averdi møter du en unik kombinasjon: autoriserte regnskapsførere med lang erfaring som kan lovverket til fingerspissene sammen med våre yngre digitale hoder sørger vi for at du utnytter dagens muligheter fullt ut.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              onClick={() => scrollToSection('contact')}
-              className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-white border-none"
-            >
-              Kontakt oss
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => scrollToSection('services')}
-              className="text-lg px-8 py-6 bg-white/10 hover:bg-white/20 text-white border-white/50 backdrop-blur-sm"
-            >
-              Se tjenester
-            </Button>
+                <div className="mt-12 flex flex-wrap gap-6 max-lg:justify-center">
+                  <Button
+                    onClick={() => scrollToSection('contact')}
+                    className="bg-indigo-600 hover:bg-indigo-700 border border-indigo-700 transition-all text-base text-white font-medium rounded-lg px-6 py-3 cursor-pointer outline-0"
+                  >
+                    Kontakt oss
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => scrollToSection('services')}
+                    className="bg-transparent hover:border-indigo-700 border border-gray-400 transition-all text-base text-slate-900 font-medium rounded-lg px-6 py-3 cursor-pointer outline-0"
+                  >
+                    Se tjenester
+                  </Button>
+                </div>
+              </div>
+
+              <div className="flex items-center flex-wrap max-lg:justify-center gap-4 mt-8">
+                <div className="text-slate-600 text-base">
+                  <span className="font-semibold">Siden 1999</span> - Pålitelig økonomipartner
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full aspect-[42/33]">
+              <img 
+                src={karasjokOver} 
+                alt="Profesjonelt kontormiljø hos Averdi"
+                className="w-full h-full object-contain" 
+                fetchPriority="high"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

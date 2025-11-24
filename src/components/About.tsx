@@ -132,22 +132,34 @@ export function About({ onViewProfile }: AboutProps) {
           </div>
         </div>
 
-        <div className="mb-12">
-          <h3 className="text-xl text-center mb-8">Våre ansatte</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {team.map((member, index) => (
-              <TeamCard
-                key={index}
-                name={member.name}
-                role={member.role}
-                email={member.email}
-                phone={member.phone}
-                description={member.description}
-                onViewProfile={onViewProfile ? () => onViewProfile(member.id) : undefined}
-              />
-            ))}
+        <section className="py-14">
+          <div className="max-w-screen-xl mx-auto px-4 text-center md:px-8">
+            <div className="max-w-xl mx-auto">
+              <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+                Møt vårt team
+              </h3>
+              <p className="text-gray-600 mt-3">
+                Lær mer om våre erfarne regnskapsførere og økonomirådgivere som står klare til å hjelpe deg
+              </p>
+            </div>
+            <div className="mt-12">
+              <ul className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+                {team.map((member, index) => (
+                  <li key={index}>
+                    <TeamCard
+                      name={member.name}
+                      role={member.role}
+                      email={member.email}
+                      phone={member.phone}
+                      description={member.description}
+                      onViewProfile={onViewProfile ? () => onViewProfile(member.id) : undefined}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
+        </section>
 
         <div className="grid md:grid-cols-3 gap-8 mt-16 text-center bg-secondary/20 rounded-xl p-8">
           <div className="p-4">

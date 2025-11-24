@@ -1,6 +1,6 @@
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
-import { Mail, Phone, User } from 'lucide-react';
+import { Mail, Phone, User, Linkedin, MessageCircle } from 'lucide-react';
 
 interface TeamCardProps {
   name: string;
@@ -14,7 +14,7 @@ interface TeamCardProps {
 
 export function TeamCard({ name, role, email, phone, photo, description, onViewProfile }: TeamCardProps) {
   return (
-    <Card className="shadow-sm hover:shadow-md transition-shadow">
+    <Card className="relative bg-white shadow-2xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-primary/20">
       <CardContent className="p-6 text-center">
         <div className="mb-4">
           {photo ? (
@@ -54,27 +54,45 @@ export function TeamCard({ name, role, email, phone, photo, description, onViewP
             </Button>
           )}
           
-          <div className="grid grid-cols-2 gap-2">
+          <div className="flex justify-center gap-4 text-gray-400 mt-4">
             <Button
-              variant="outline"
+              variant="ghost"
               size="sm"
               asChild
-              className="flex items-center gap-2"
+              className="h-8 w-8 p-0 hover:text-primary transition-colors"
             >
-              <a href={`mailto:${email}`}>
+              <a href={`mailto:${email}`} aria-label={`Send e-post til ${name}`}>
                 <Mail className="h-4 w-4" />
-                E-post
               </a>
             </Button>
             <Button
-              variant="outline"
+              variant="ghost"
               size="sm"
               asChild
-              className="flex items-center gap-2"
+              className="h-8 w-8 p-0 hover:text-primary transition-colors"
             >
-              <a href={`tel:${phone}`}>
+              <a href={`tel:${phone}`} aria-label={`Ring ${name}`}>
                 <Phone className="h-4 w-4" />
-                Ring
+              </a>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              asChild
+              className="h-8 w-8 p-0 hover:text-primary transition-colors"
+            >
+              <a href="#" aria-label={`Send melding til ${name}`}>
+                <MessageCircle className="h-4 w-4" />
+              </a>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              asChild
+              className="h-8 w-8 p-0 hover:text-primary transition-colors"
+            >
+              <a href="#" aria-label={`Se ${name} på LinkedIn`}>
+                <Linkedin className="h-4 w-4" />
               </a>
             </Button>
           </div>
