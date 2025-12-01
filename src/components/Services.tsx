@@ -1,20 +1,24 @@
 import { ServiceCard } from './ServiceCard';
+import { useNavigate } from 'react-router-dom';
 import regnskapIcon from '../assets/regnskap.avif';
 import lonnIcon from '../assets/lonn.avif';
 import raadgivingIcon from '../assets/raadgiving.avif';
 import fakturaIcon from '../assets/faktura.avif';
 
 export function Services() {
+  const navigate = useNavigate();
   const services = [
     {
       icon: regnskapIcon,
       title: "Regnskap",
       bullets: [
         "Løpende bokføring og bilagsbehandling",
-        "Månedsrapporter og årsregnskap",
-        "Mva-oppgaver og skattemeldinger"
+        "Perioderapportering og årsregnskap",
+        "Mva-oppgaver og skattemeldinger",
+        "Remittering",
+        "Prosjektregnskap"
       ],
-      expandedContent: "Vi tar hånd om hele regnskapsførselen for din bedrift. Fra daglig bokføring til årsoppgjør sørger vi for at alt er i orden. Våre autoriserte regnskapsførere har lang erfaring med alt fra små enkeltpersonforetak til større AS-selskaper."
+      expandedContent: "Vi tar hånd om hele regnskapsførselen for din bedrift. Fra daglig bokføring til årsoppgjør sørger vi for at alt er i orden. Skybasert regnskap via Power Office GO eller Finago Office (24SevenOffice) gir deg oppdatert regnskap til enhver tid med full systemtilgang. Våre statsautoriserte regnskapsførere har lang erfaring med alt fra organisasjoner og småbedrifter til handel."
     },
     {
       icon: lonnIcon,
@@ -22,7 +26,8 @@ export function Services() {
       bullets: [
         "Lønnskjøring og lønnsslipp",
         "A-melding og skatterapportering",
-        "Feriepengeberegning og utbetaling"
+        "Feriepengeberegning og utbetaling",
+        "Digitale reiseregninger"
       ],
       expandedContent: "Vårt lønnssystem håndterer alt fra lønnskjøring til rapportering til myndighetene. Vi sørger for at alle ansatte får riktig lønn til rett tid, og at alle lovpålagte rapporter sendes inn korrekt og i tide."
     },
@@ -79,6 +84,26 @@ export function Services() {
               expandedContent={service.expandedContent}
             />
           ))}
+        </div>
+        {/* CTA for Sametinget Guide */}
+        <div className="mt-16 text-center">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-white rounded-2xl shadow-lg border border-[#E86C1F]/10 max-w-3xl mx-auto">
+            <div className="p-3 bg-[#E86C1F]/10 rounded-full text-[#E86C1F]">
+              <span className="text-2xl">💡</span>
+            </div>
+            <div className="text-left flex-1">
+              <h3 className="font-bold text-lg text-foreground">Søker du støtte fra Sametinget?</h3>
+              <p className="text-muted-foreground text-sm">
+                Vi har laget en komplett guide om tilskuddsordninger, krav og søknadsprosess.
+              </p>
+            </div>
+            <button
+              onClick={() => navigate('/kunnskapsbank/sametinget')}
+              className="whitespace-nowrap px-6 py-2.5 bg-secondary/10 text-foreground font-medium rounded-full hover:bg-[#E86C1F] hover:text-white transition-colors"
+            >
+              Les guiden vår
+            </button>
+          </div>
         </div>
       </div>
     </section>

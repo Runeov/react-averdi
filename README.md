@@ -1,51 +1,69 @@
 # Averdi - Autorisert Regnskapsførerselskap
 
-A modern React website for Averdi, an authorized accounting firm in Norway.
+[![Deploy to GitHub Pages](https://github.com/AverdiAS/react-averdi/actions/workflows/deploy.yml/badge.svg)](https://github.com/AverdiAS/react-averdi/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## 🚀 Deployment
+A modern React website for Averdi, an authorized accounting firm based in Karasjok, Norway. Built with React 19, TypeScript, and Tailwind CSS.
 
-This project is configured for automatic deployment to GitHub Pages. See [`DEPLOYMENT.md`](DEPLOYMENT.md) for detailed deployment instructions.
+## 🌐 Live Demo
 
-**Live Site:** `https://username.github.io/react-averdi/` (replace `username` with your GitHub username)
+**[View Live Site](https://averdias.github.io/react-averdi/)**
 
-### Quick Deploy
+## ✨ Features
 
-1. Push to the `main` branch
-2. GitHub Actions automatically builds and deploys
-3. View deployment status in the **Actions** tab
+- **Modern Design** - Clean, professional UI with responsive layout
+- **Multi-page Navigation** - React Router for seamless page transitions
+- **Service Showcase** - Detailed service pages for accounting, payroll, and advisory
+- **Team Section** - Employee profiles and company information
+- **Knowledge Base** - Articles and resources for clients
+- **News Section** - Latest updates and announcements
+- **Contact Integration** - Easy-to-use contact forms
 
-## 🛠️ Development
+## 🛠️ Tech Stack
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| [React](https://react.dev/) | 19.2 | UI Framework |
+| [TypeScript](https://www.typescriptlang.org/) | 5.9 | Type Safety |
+| [Vite](https://vitejs.dev/) | 7.2 | Build Tool |
+| [Tailwind CSS](https://tailwindcss.com/) | 4.1 | Styling |
+| [React Router](https://reactrouter.com/) | 7.9 | Navigation |
+| [Radix UI](https://www.radix-ui.com/) | Latest | UI Components |
+| [Lucide React](https://lucide.dev/) | Latest | Icons |
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
 - Node.js 20 or higher
-- npm or yarn
+- npm 10 or higher
 
 ### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/AverdiAS/react-averdi.git
+
+# Navigate to project directory
+cd react-averdi
+
+# Install dependencies
 npm install
-```
 
-### Development Server
-
-```bash
+# Start development server
 npm run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) to view the site.
 
-### Build for Production
+### Available Scripts
 
-```bash
-npm run build
-```
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
 
 ## 📁 Project Structure
 
@@ -53,95 +71,76 @@ npm run preview
 react-averdi/
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml          # GitHub Actions deployment workflow
-├── public/                     # Static assets
+│       └── deploy.yml      # GitHub Actions deployment
+├── public/                 # Static assets
+│   ├── logo_averdi.png
+│   └── robots.txt
 ├── src/
-│   ├── components/            # React components
-│   ├── lib/                   # Utility functions
-│   └── main.tsx              # Application entry point
-├── DEPLOYMENT.md              # Detailed deployment guide
-└── vite.config.ts            # Vite configuration
+│   ├── assets/            # Images and media
+│   ├── components/        # React components
+│   │   ├── ui/           # Reusable UI components
+│   │   └── ...           # Feature components
+│   ├── data/             # Static data files
+│   ├── pages/            # Page components
+│   ├── App.tsx           # Main app component
+│   ├── main.tsx          # Entry point
+│   └── index.css         # Global styles
+├── index.html            # HTML template
+├── vite.config.ts        # Vite configuration
+├── tailwind.config.ts    # Tailwind configuration
+└── tsconfig.json         # TypeScript configuration
 ```
 
-## 🎨 Tech Stack
+## 🚢 Deployment
 
-- **Framework:** React 19 with TypeScript
-- **Build Tool:** Vite 7
-- **Styling:** Tailwind CSS 4
-- **UI Components:** Radix UI
-- **Icons:** Lucide React
-- **Deployment:** GitHub Pages with GitHub Actions
+This project is configured for automatic deployment to GitHub Pages via GitHub Actions.
 
-## React + TypeScript + Vite
+### Automatic Deployment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Push changes to the `main` branch
+2. GitHub Actions automatically builds and deploys
+3. View deployment status in the **Actions** tab
 
-Currently, two official plugins are available:
+### Manual Deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Go to **Actions** tab on GitHub
+2. Select **Deploy to GitHub Pages** workflow
+3. Click **Run workflow**
 
-## React Compiler
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🔧 Configuration
 
-## Expanding the ESLint configuration
+### Environment Variables
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+No environment variables are required for basic setup. For custom configurations:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Variable | Description |
+|----------|-------------|
+| `VITE_API_URL` | API endpoint (if applicable) |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Base Path
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The application is configured with base path `/react-averdi/` for GitHub Pages deployment. Modify in [`vite.config.ts`](vite.config.ts:6) if deploying elsewhere.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🤝 Contributing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+**Averdi AS**
+- Website: [averdi.no](https://averdi.no)
+- Location: Karasjok, Norway
+
+---
+
+Built with ❤️ by Averdi AS

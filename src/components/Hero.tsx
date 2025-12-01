@@ -1,8 +1,25 @@
-import { scrollToSection } from './ui/utils';
+import { useNavigate, useLocation } from 'react-router-dom';
 import karasjokOver from '../assets/karasjok_Over.avif';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export function Hero() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navbarHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     // Endret padding-top fra pt-16/lg:pt-24 til pt-8/lg:pt-12 for å løfte innholdet
     <section className="relative overflow-hidden bg-background pt-8 pb-20 lg:pt-12 lg:pb-32">
@@ -35,10 +52,10 @@ export function Hero() {
 
             <div className="space-y-4 text-base text-muted-foreground mb-10 leading-relaxed bg-white/50 backdrop-blur-sm p-6 rounded-2xl border border-[#E86C1F]/10 shadow-sm">
               <p>
-                Siden 1999 har vi vært en trygg havn for norske bedrifter. Men trygghet betyr ikke stillstand.
+                Siden 1989 har vi vært en trygg havn for organisasjoner, småbedrifter og handel. Men trygghet betyr ikke stillstand.
               </p>
               <p>
-                Hos Averdi møter du en unik kombinasjon: <strong className="text-foreground">autoriserte regnskapsførere</strong> med lang erfaring som kan lovverket til fingerspissene, sammen med våre yngre digitale hoder som sørger for at du utnytter dagens muligheter fullt ut.
+                Hos Averdi møter du en unik kombinasjon: <strong className="text-foreground">statsautoriserte regnskapsførere</strong> med lang erfaring som kan lovverket til fingerspissene, sammen med våre yngre digitale hoder som sørger for at du utnytter dagens muligheter fullt ut.
               </p>
             </div>
 
@@ -61,7 +78,7 @@ export function Hero() {
             <div className="mt-8 flex items-center justify-center lg:justify-start gap-6 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-600" />
-                <span>Etablert 1999</span>
+                <span>Etablert 1989</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-green-600" />

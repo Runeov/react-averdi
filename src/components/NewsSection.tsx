@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { ExternalLink, Loader2, Newspaper } from 'lucide-react';
+import { ExternalLink, Loader2 } from 'lucide-react';
+import { companyNews } from '../data/news';
 
 interface NewsItem {
   title: string;
   link: string;
   description: string;
   pubDate: string;
+  isCompanyNews?: boolean;
 }
 
 export function NewsSection() {
@@ -40,7 +42,20 @@ export function NewsSection() {
           })
         }));
 
-        setNews(newsItems);
+        // Merge company news with external news
+        const internalNews: NewsItem[] = companyNews.map(item => ({
+          title: item.title,
+          link: item.link || '#',
+          description: item.summary,
+          pubDate: new Date(item.date).toLocaleDateString('no-NO', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          }),
+          isCompanyNews: true
+        }));
+
+        setNews([...internalNews, ...newsItems]);
       } catch (err) {
         console.error('Error fetching news:', err);
         // Fallback til XML parsing ved feil
@@ -70,7 +85,20 @@ export function NewsSection() {
           })
         }));
 
-        setNews(newsItems);
+        // Merge company news with external news (fallback)
+        const internalNews: NewsItem[] = companyNews.map(item => ({
+          title: item.title,
+          link: item.link || '#',
+          description: item.summary,
+          pubDate: new Date(item.date).toLocaleDateString('no-NO', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          }),
+          isCompanyNews: true
+        }));
+
+        setNews([...internalNews, ...newsItems]);
       } catch (err) {
         console.error('Error fetching news fallback:', err);
         setError('Kunne ikke laste nyheter for øyeblikket.');
@@ -81,25 +109,7 @@ export function NewsSection() {
   }, []);
 
   return (
-    <section id="news" className="py-24 relative overflow-hidden bg-background">
-      {/* Background decoration - Matches About/Services style */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px]"></div>
-        <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[100px]"></div>
-      </div>
-
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            <Newspaper className="h-4 w-4" />
-            Aktuelt
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground">Siste nytt fra Regnskap Norge</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Hold deg oppdatert på de siste endringene og nyhetene innen regnskap og økonomi.
-          </p>
-        </div>
-
+    <div className="relative">
         {loading ? (
           <div className="flex justify-center items-center py-20">
             <Loader2 className="h-10 w-10 animate-spin text-primary" />
@@ -116,12 +126,19 @@ export function NewsSection() {
                 className="flex flex-col h-full relative bg-white rounded-xl shadow-lg border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group overflow-hidden"
               >
                 {/* Updated to Averdi colors */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#E86C1F] to-[#F4B223]"></div>
+                <div className={`absolute top-0 left-0 w-full h-1 ${item.isCompanyNews ? 'bg-gradient-to-r from-[#E86C1F] to-[#F4B223]' : 'bg-gray-200'}`}></div>
                 
                 <div className="p-6 flex flex-col h-full">
-                  <div className="flex items-center gap-2 text-sm text-primary font-medium mb-3">
-                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                    {item.pubDate}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2 text-sm text-primary font-medium">
+                      <span className={`w-2 h-2 rounded-full ${item.isCompanyNews ? 'bg-[#E86C1F]' : 'bg-gray-400'} animate-pulse`}></span>
+                      {item.pubDate}
+                    </div>
+                    {item.isCompanyNews && (
+                      <span className="px-2 py-0.5 bg-[#E86C1F]/10 text-[#E86C1F] text-xs font-bold rounded-full uppercase tracking-wide">
+                        Averdi
+                      </span>
+                    )}
                   </div>
                   
                   <h3 className="text-xl font-bold mb-3 line-clamp-2 text-foreground group-hover:text-primary transition-colors" title={item.title}>
@@ -160,7 +177,6 @@ export function NewsSection() {
             <span className="text-xl ml-2">→</span>
           </a>
         </div>
-      </div>
-    </section>
+    </div>
   );
 }

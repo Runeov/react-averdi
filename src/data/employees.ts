@@ -2,11 +2,11 @@ export const employees = {
   "tonje-iren-anti": {
     id: "tonje-iren-anti",
     name: "Tonje Iren Anti",
-    role: "Regnskapsfører",
+    role: "Statsautorisert regnskapsfører",
     email: "tonje.iren.anti@averdi.no",
     phone: "48023265",
     office: "karasjok" as const,
-    description: "Tonje Iren er en erfaren regnskapsfører ved vårt Karasjok-kontor. Hun har bred kompetanse innen regnskapsføring og rådgivning for lokale bedrifter.",
+    description: "Tonje Iren er en erfaren statsautorisert regnskapsfører ved vårt Karasjok-kontor. Hun har bred kompetanse innen regnskapsføring og rådgivning for lokale bedrifter.",
     experience: "Erfaren",
     specialties: [
       "Regnskapsføring",
@@ -14,7 +14,7 @@ export const employees = {
       "Lokalt næringsliv"
     ],
     education: [
-      "Autorisert regnskapsfører"
+      "Statsautorisert regnskapsfører"
     ],
     languages: ["Norsk", "Nordsamisk"],
     workingHours: "Man-Fre: 08:00-16:00",
@@ -28,19 +28,19 @@ export const employees = {
   "linda-marja-anti-kildedam": {
     id: "linda-marja-anti-kildedam",
     name: "Linda Marja Anti Kildedam",
-    role: "Regnskapsfører",
+    role: "Økonomirådgiver",
     email: "linda.kildedam@averdi.no",
     phone: "48051672",
     office: "karasjok" as const,
-    description: "Linda Marja er en dyktig regnskapsfører som bistår våre kunder med nøyaktig regnskapsføring og god økonomisk oversikt.",
+    description: "Linda Marja er en dyktig økonomirådgiver som bistår våre kunder med nøyaktig regnskapsføring og god økonomisk oversikt.",
     experience: "Erfaren",
     specialties: [
-      "Regnskapsføring",
+      "Økonomirådgivning",
       "Økonomisk oversikt",
       "Kundeoppfølging"
     ],
     education: [
-      "Autorisert regnskapsfører"
+      "Økonomirådgiver"
     ],
     languages: ["Norsk", "Nordsamisk"],
     workingHours: "Man-Fre: 08:00-16:00",

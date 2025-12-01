@@ -1,7 +1,24 @@
 {
   "name": "react-averdi",
+  "version": "1.0.0",
+  "description": "Modern React website for Averdi - Autorisert Regnskapsførerselskap",
+  "author": "Averdi AS",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AverdiAS/react-averdi.git"
+  },
+  "homepage": "https://averdias.github.io/react-averdi/",
+  "keywords": [
+    "react",
+    "typescript",
+    "vite",
+    "tailwindcss",
+    "accounting",
+    "regnskap",
+    "averdi"
+  ],
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -20,6 +37,7 @@
     "lucide-react": "^0.554.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.6",
     "tailwind-merge": "^3.4.0",
     "typescript": "~5.9.3",
     "vite": "^7.2.4"

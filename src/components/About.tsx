@@ -106,7 +106,7 @@ export function About({ onViewProfile }: AboutProps) {
     {
       id: "ingvald-laiti",
       name: "Ingvald Laiti",
-      role: "Daglig leder / Autorisert regnskapsfører",
+      role: "Daglig leder / Statsautorisert regnskapsfører",
       email: "ingvald.laiti@averdi.no",
       phone: "907 67 993",
       description: "Leder teamet med faglig tyngde og sikrer det solide fundamentet."
@@ -117,7 +117,7 @@ export function About({ onViewProfile }: AboutProps) {
       role: "Regnskapsfører",
       email: "jan.atle.guttorm@averdi.no",
       phone: "915 48 089",
-      description: "Din garantist for orden. Leverer presis regnskapsføring som gir deg full kontroll i hverdagen."
+      description: "Din garantist for orden. Leverer presis regnskapsføring som gir deg full kontroll i hverdagen. Over 30 års erfaring i bransjen."
     },
     {
       id: "hilde-laiti",
@@ -133,12 +133,12 @@ export function About({ onViewProfile }: AboutProps) {
       role: "Regnskapsfører",
       email: "alida.norvang@averdi.no",
       phone: "480 52 329",
-      description: "Nøyaktig og pålitelig. Sikrer at regnskapet ditt er en stabil plattform for alle dine viktige beslutninger."
+      description: "Nøyaktig og pålitelig. Sikrer at regnskapet ditt er en stabil plattform for alle dine viktige beslutninger. Over 30 års erfaring i bransjen."
     },
     {
       id: "tonje-iren-anti",
       name: "Tonje Iren Anti",
-      role: "Regnskapsfører",
+      role: "Statsautorisert regnskapsfører",
       email: "tonje.iren.anti@averdi.no",
       phone: "480 23 265",
       description: "En engasjert støttespiller som passer på at regnskapet ditt alltid er oppdatert."
@@ -146,7 +146,7 @@ export function About({ onViewProfile }: AboutProps) {
     {
       id: "linda-kildedam",
       name: "Linda Marja Anti Kildedam",
-      role: "Regnskapsfører",
+      role: "Økonomirådgiver",
       email: "linda.kildedam@averdi.no",
       phone: "480 51 672",
       description: "Gir deg trygghet og oversikt. Hun sikrer at beslutningsgrunnlaget ditt alltid er i orden."
@@ -155,8 +155,8 @@ export function About({ onViewProfile }: AboutProps) {
       id: "john-david-utsi-gaup",
       name: "John David Utsi Gaup",
       role: "Økonomirådgiver",
-      email: "john.david.gaup@averdi.no", 
-      phone: "400 00 000",
+      email: "John.davit@averdi.no",
+      phone: "480 23 265",
       description: "Bistår med strategisk rådgivning og analyser for å sikre lønnsom drift og sunn økonomisk utvikling."
     }
   ];
@@ -180,7 +180,7 @@ export function About({ onViewProfile }: AboutProps) {
             Om Averdi
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Din lokale partner siden 1999
+            Din lokale partner siden 1989
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Vi kombinerer lokal kunnskap med moderne teknologi for å gi deg de beste løsningene.
@@ -204,7 +204,7 @@ export function About({ onViewProfile }: AboutProps) {
               </h2>
               <div className="space-y-4 text-lg leading-relaxed font-medium drop-shadow-sm text-center">
                 <p>
-                  Averdi har siden 1999 vært en pålitelig og erfaren partner for norske bedrifter.
+                  Averdi ble etablert i 1989 som Laitis Regnskapskontor, og ble til Averdi Karasjok AS i 1999.
                 </p>
               </div>
             </div>
@@ -215,14 +215,21 @@ export function About({ onViewProfile }: AboutProps) {
               <div className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-2xl font-bold text-foreground mb-4">Lokal forankring</h3>
                 <p>
-                  Averdi har siden 1999 vært en pålitelig og erfaren partner for norske bedrifter. Med vårt kontor i Karasjok er vi dypt forankret i regionen, og kombinerer vår lokale kunnskap med profesjonelle regnskapstjenester.
+                  Averdi ble etablert i 1989 som Laitis Regnskapskontor, og ble til Averdi Karasjok AS i 1999. Med vårt kontor i Karasjok er vi dypt forankret i regionen, og kombinerer vår lokale kunnskap med profesjonelle regnskapstjenester for organisasjoner, småbedrifter og handel.
                 </p>
               </div>
               
               <div className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-2xl font-bold text-foreground mb-4">Din suksess er vårt mål</h3>
                 <p>
-                  Vi brenner for å se våre kunder lykkes, enten du driver et enkeltpersonforetak eller et større AS. Vår kompetanse sikrer at din økonomi er i trygge hender.
+                  Vi brenner for å se våre kunder lykkes, enten du driver en organisasjon, småbedrift eller handel. Vår kompetanse sikrer at din økonomi er i trygge hender.
+                </p>
+              </div>
+
+              <div className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-2xl font-bold text-foreground mb-4">Spesialkompetanse</h3>
+                <p>
+                  Vi har omfattende erfaring med regnskap for Samiske organisasjoner og institusjoner. Vår lokale forankring i Karasjok gir oss unik innsikt i regionens behov.
                 </p>
               </div>
             </div>
@@ -249,7 +256,7 @@ export function About({ onViewProfile }: AboutProps) {
                       </h3>
                       <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                         <p>
-                          Ingvald Laiti er daglig leder og statsautorisert regnskapsfører. Han har drevet regnskapsbyrå siden 1999, og leder teamet med solid erfaring og faglig tyngde.
+                          Ingvald Laiti er daglig leder og statsautorisert regnskapsfører. Han startet Laitis Regnskapskontor i 1989, som ble til Averdi Karasjok AS i 1999. Han leder teamet med solid erfaring og faglig tyngde.
                         </p>
                         <p>
                           Ingvald er dedikert til å opprettholde Averdis posisjon som en fremtidsrettet og tillitvekkende samarbeidspartner, med et sterkt fokus på kundenes behov og lokal tilstedeværelse fra Karasjok.
@@ -321,7 +328,7 @@ export function About({ onViewProfile }: AboutProps) {
             <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🤝</div>
             <h4 className="text-xl font-bold mb-2">Solid erfaring</h4>
             <p className="text-muted-foreground">
-              Trygg partner for bedrifter i regionen siden 1999
+              Trygg partner for bedrifter i regionen siden 1989
             </p>
           </div>
           <div className="p-4 group">

@@ -1,20 +1,22 @@
 import { ArrowUp } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import logoAverdi from '../assets/logo_averdi.avif';
-export function Footer() {
-  // Plassholder for logo (siden filimport feiler i dette miljøet)
 
+export function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const navbarHeight = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - navbarHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: sectionId } });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navbarHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      }
     }
   };
 
@@ -33,8 +35,8 @@ export function Footer() {
               <img src={logoAverdi} alt="Averdi Logo" className="h-32 w-auto opacity-90" />
             </div>
             <p className="text-muted-foreground leading-relaxed max-w-sm text-base">
-              Autorisert regnskapsførerselskap som hjelper norske bedrifter med 
-              regnskap, lønn og økonomisk rådgivning siden 1999.
+              Statsautorisert regnskapsførerselskap som hjelper organisasjoner, småbedrifter og handel med
+              regnskap, lønn og økonomisk rådgivning siden 1989.
             </p>
             <div className="flex flex-col gap-1 text-sm text-muted-foreground/80">
               <p>Org.nr: 980 383 571</p>
@@ -77,13 +79,13 @@ export function Footer() {
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('news')}
+                <Link
+                  to="/kunnskapsbank"
                   className="hover:text-[#E86C1F] transition-colors flex items-center gap-2 group"
                 >
                   <span className="w-1 h-1 rounded-full bg-[#E86C1F] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Nyheter
-                </button>
+                  Kunnskapsbank
+                </Link>
               </li>
               <li>
                 <button
