@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { employees } from '../data/employees';
-import { Mail, Phone, User, Linkedin, MessageCircle } from 'lucide-react';
+import { User } from 'lucide-react';
 
 // Gjenbruk TeamCard koden her eller importer den hvis du skiller den ut i en egen fil
-function TeamCard({ name, role, email, phone, photo, description, onViewProfile }: any) {
+function TeamCard({ name, role, onViewProfile }: any) {
   // ... (Samme kode som i About.tsx for TeamCard)
   return (
     <div className="relative bg-white rounded-xl shadow-lg border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col overflow-hidden group">

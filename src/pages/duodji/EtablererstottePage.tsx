@@ -1,4 +1,4 @@
-import { ArrowLeft, DollarSign, CheckCircle2, AlertTriangle, ArrowRight } from 'lucide-react';
+import { ArrowLeft, DollarSign, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '../../components/ui/button';

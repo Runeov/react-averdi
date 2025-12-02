@@ -1,4 +1,4 @@
-import { ArrowLeft, Briefcase, TrendingUp, MapPin, Calculator, AlertCircle, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Briefcase, TrendingUp, MapPin, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '../components/ui/button';

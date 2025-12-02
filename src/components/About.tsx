@@ -1,11 +1,7 @@
 import { Mail, Phone, User, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-interface AboutProps {
-  onViewProfile?: (employeeId: string) => void;
-}
-
-export function About({ onViewProfile }: AboutProps) {
+export function About() {
   const navigate = useNavigate();
   // Placeholder image URL since local file might be missing
   const placeholderImage = "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1632&q=80";

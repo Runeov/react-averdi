@@ -1,4 +1,4 @@
-import { ArrowLeft, Tractor, Anchor, Mountain, AlertCircle, ArrowRight, CheckCircle2, TrendingUp, Coins } from 'lucide-react';
+import { ArrowLeft, Tractor, Anchor, Mountain, AlertCircle, CheckCircle2, TrendingUp, Coins } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '../components/ui/button';

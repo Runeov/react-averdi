@@ -9,7 +9,6 @@ import {
   Briefcase, 
   Palette, 
   Tractor, 
-  ExternalLink, 
   Camera, 
   ArrowRight 
 } from 'lucide-react';
