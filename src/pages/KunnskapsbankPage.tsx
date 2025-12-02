@@ -1,6 +1,7 @@
 import { BookOpen, ArrowRight, Newspaper, Building2, ShoppingBag, Landmark } from 'lucide-react';
 import { NewsSection } from '../components/NewsSection';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export function KunnskapsbankPage() {
   const guides = [
@@ -41,6 +42,15 @@ export function KunnskapsbankPage() {
 
   return (
     <main className="pt-20 min-h-screen bg-background">
+      <Helmet>
+        <title>Kunnskapsbank - Guider for Næringsliv og Foreninger | Averdi</title>
+        <meta 
+          name="description" 
+          content="Få tilgang til ekspertguider om støtteordninger fra Sametinget, lønnsom butikkdrift og økonomistyring for lag og foreninger. Averdi deler kunnskap." 
+        />
+        <meta name="keywords" content="Sametinget støtte, STN-området, regnskap butikk, økonomi forening, regnskapsfører Karasjok, bedriftsrådgivning" />
+      </Helmet>
+
       <section className="py-24 relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 z-0">
