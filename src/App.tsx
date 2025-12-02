@@ -14,7 +14,8 @@ const KunnskapsbankPage = lazy(() => import('./pages/KunnskapsbankPage').then(m 
 const SametingetPage = lazy(() => import('./pages/SametingetPage').then(m => ({ default: m.SametingetPage })));
 const HandelPage = lazy(() => import('./pages/HandelPage').then(m => ({ default: m.HandelPage })));
 const OrganisasjonPage = lazy(() => import('./pages/OrganisasjonPage').then(m => ({ default: m.OrganisasjonPage })));
-
+const EmployeeProfilePage = lazy(() => import('./pages/EmployeeProfilePage').then(m => ({ default: m.EmployeeProfilePage })));
+const TeamPage = lazy(() => import('./pages/TeamPage').then(m => ({ default: m.TeamPage })));
 // Sametinget Deep Links
 const VariertNaeringslivPage = lazy(() => import('./pages/VariertNaeringslivPage').then(m => ({ default: m.VariertNaeringslivPage })));
 const SamiskReiselivPage = lazy(() => import('./pages/SamiskReiselivPage').then(m => ({ default: m.SamiskReiselivPage })));
@@ -74,6 +75,8 @@ export default function App() {
             <Route path="/kunnskapsbank/sametinget/duodji/dokumentasjon" element={<DokumentasjonPage />} />
             <Route path="/kunnskapsbank/sametinget/duodji/kompetanseheving" element={<KompetansehevingPage />} />
 
+<Route path="/om-oss/ansatte/:id" element={<EmployeeProfilePage />} />
+<Route path="/om-oss/team" element={<TeamPage />} />
             <Route path="/kunnskapsbank/handel" element={<HandelPage />} />
             <Route path="/kunnskapsbank/organisasjoner" element={<OrganisasjonPage />} />
             <Route path="/farger" element={<StylesheetPage onBack={() => window.history.back()} />} />
