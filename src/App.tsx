@@ -13,6 +13,7 @@ import { OrganisasjonPage } from './pages/OrganisasjonPage';
 import { VariertNaeringslivPage } from './pages/VariertNaeringslivPage';
 import { DuodjiPage } from './pages/DuodjiPage';
 import { SamiskReiselivPage } from './pages/SamiskReiselivPage';
+import { PrimaernaeringPage } from './pages/PrimaernaeringPage';
 
 // Imports for Duodji Sub-pages
 import { ProduktutviklingPage } from './pages/duodji/ProduktutviklingPage';
@@ -21,6 +22,7 @@ import { UtstyrInvesteringPage } from './pages/duodji/UtstyrInvesteringPage';
 import { EtablererstottePage } from './pages/duodji/EtablererstottePage';
 import { DokumentasjonPage } from './pages/duodji/DokumentasjonPage';
 import { KompetansehevingPage } from './pages/duodji/KompetansehevingPage';
+
 
 const StylesheetPage = lazy(() => import('./components/StylesheetPage').then(module => ({ default: module.StylesheetPage })));
 
@@ -48,7 +50,7 @@ export default function App() {
           <Route path="/kunnskapsbank/sametinget/variert-naeringsliv" element={<VariertNaeringslivPage />} />
           <Route path="/kunnskapsbank/sametinget/samisk-reiseliv" element={<SamiskReiselivPage />} />
           <Route path="/kunnskapsbank/sametinget/duodji" element={<DuodjiPage />} />
-          
+          <Route path="/kunnskapsbank/sametinget/primaernaering" element={<PrimaernaeringPage />} />
           {/* DUODJI SUB-ROUTES */}
           <Route path="/kunnskapsbank/sametinget/duodji/produktutvikling" element={<ProduktutviklingPage />} />
           <Route path="/kunnskapsbank/sametinget/duodji/markedspromotering" element={<MarkedspromoteringPage />} />
