@@ -1,4 +1,19 @@
-import { ArrowLeft, CheckCircle2, AlertCircle, MapPin, HelpCircle, FileText, TrendingUp, Briefcase, Palette, Tractor, ExternalLink, Music } from 'lucide-react';
+import { 
+  ArrowLeft, 
+  CheckCircle2, 
+  AlertCircle, 
+  MapPin, 
+  HelpCircle, 
+  FileText, 
+  TrendingUp, 
+  Briefcase, 
+  Palette, 
+  Tractor, 
+  ExternalLink, 
+  Camera, 
+  ArrowRight 
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface SametingetHubProps {
   onBack: () => void;
@@ -17,8 +32,9 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
           <button 
             onClick={onBack}
             className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors group"
+            aria-label="Gå tilbake til Kunnskapsbanken"
           >
-            <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+            <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
             Tilbake til Kunnskapsbanken
           </button>
           
@@ -49,181 +65,125 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
         <section id="cluster1" className="scroll-mt-24">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-3 bg-blue-100 text-blue-600 rounded-xl">
-              <TrendingUp className="h-6 w-6" />
+              <TrendingUp className="h-6 w-6" aria-hidden="true" />
             </div>
             <h2 className="text-3xl font-bold text-foreground">Hvilken støtte passer for deg?</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+            
             {/* Variert næringsliv */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
+            <Link 
+              to="/kunnskapsbank/sametinget/variert-naeringsliv"
+              className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full hover:border-[#E86C1F]/30"
+            >
               <div className="mb-4 p-3 bg-orange-50 text-orange-600 rounded-lg w-fit group-hover:scale-110 transition-transform">
-                <Briefcase className="h-6 w-6" />
+                <Briefcase className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Variert næringsliv</h3>
+              <h3 className="text-xl font-bold mb-3 group-hover:text-[#E86C1F] transition-colors">Variert næringsliv</h3>
               <p className="text-muted-foreground mb-4 text-sm flex-grow">
-                For bedrifter som vil satse. Dekker investeringer, utvikling og kompetanseheving. Støtten kan dekke inntil 35% av godkjente kostnader.
+                For bedrifter som vil satse. Dekker investeringer, utvikling og kompetanseheving. Inntil <strong>500 000 kr</strong> i støtte.
               </p>
               <ul className="space-y-2 text-sm text-gray-600 mb-6">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Krav til lønnsomhet og budsjett</span>
+                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" aria-hidden="true" />
+                  <span>Krav til lønnsomhet</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Inntil 500.000 kr i støtte</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Må være registrert i STN-området</span>
+                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" aria-hidden="true" />
+                  <span>Inntil 40% investeringsstøtte</span>
                 </li>
               </ul>
-              <a
-                href="https://sametinget.no/stipend-og-tilskudd/oversikt-over-tilskuddsordninger/naring/variert-naringsliv/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center text-sm font-medium text-primary hover:underline"
-              >
-                Les mer hos Sametinget
-                <ExternalLink className="h-3 w-3 ml-1" />
-              </a>
-            </div>
+              <div className="mt-auto inline-flex items-center text-sm font-medium text-primary group-hover:translate-x-2 transition-transform">
+                Gå til guiden
+                <ArrowRight className="h-3 w-3 ml-1" aria-hidden="true" />
+              </div>
+            </Link>
 
             {/* Duodji */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
+            <Link 
+              to="/kunnskapsbank/sametinget/duodji"
+              className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full hover:border-purple-300"
+            >
               <div className="mb-4 p-3 bg-purple-50 text-purple-600 rounded-lg w-fit group-hover:scale-110 transition-transform">
-                <Palette className="h-6 w-6" />
+                <Palette className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Duodji</h3>
+              <h3 className="text-xl font-bold mb-3 group-hover:text-purple-600 transition-colors">Duodji</h3>
               <p className="text-muted-foreground mb-4 text-sm flex-grow">
-                Egne ordninger for tradisjonelt håndverk. Både driftstilskudd, investeringer, markedstilpasning og kompetanseheving.
+                Egne ordninger for tradisjonelt håndverk. Driftstilskudd, marked og investeringer.
               </p>
               <ul className="space-y-2 text-sm text-gray-600 mb-6">
                 <li className="flex items-start gap-2">
-                  <AlertCircle className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
-                  <span>Skille hobby vs. næring (omsetningskrav)</span>
+                  <AlertCircle className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" aria-hidden="true" />
+                  <span>Skille hobby vs. næring</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Krav om duodjiregisteret</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" aria-hidden="true" />
                   <span>Støtte til verksted og utstyr</span>
                 </li>
               </ul>
-              <a
-                href="https://sametinget.no/stipend-og-tilskudd/oversikt-over-tilskuddsordninger/duodji/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center text-sm font-medium text-primary hover:underline"
-              >
-                Les mer hos Sametinget
-                <ExternalLink className="h-3 w-3 ml-1" />
-              </a>
-            </div>
+              <div className="mt-auto inline-flex items-center text-sm font-medium text-primary group-hover:translate-x-2 transition-transform">
+                Se de 6 ordningene
+                <ArrowRight className="h-3 w-3 ml-1" aria-hidden="true" />
+              </div>
+            </Link>
+
+            {/* Samisk reiseliv & Kreativ */}
+            <Link 
+              to="/kunnskapsbank/sametinget/samisk-reiseliv"
+              className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full hover:border-indigo-300"
+            >
+              <div className="mb-4 p-3 bg-indigo-50 text-indigo-600 rounded-lg w-fit group-hover:scale-110 transition-transform">
+                <Camera className="h-6 w-6" aria-hidden="true" />
+              </div>
+              <h3 className="text-xl font-bold mb-3 group-hover:text-indigo-600 transition-colors">Reiseliv & Kreativ</h3>
+              <p className="text-muted-foreground mb-4 text-sm flex-grow">
+                For deg som lever av kultur, mat eller opplevelser. Etablererstøtte opp til <strong>250 000 kr</strong>.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" aria-hidden="true" />
+                  <span>Krav om samisk innhold</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" aria-hidden="true" />
+                  <span>Produktutvikling og marked</span>
+                </li>
+              </ul>
+              <div className="mt-auto inline-flex items-center text-sm font-medium text-primary group-hover:translate-x-2 transition-transform">
+                Les om ordningen
+                <ArrowRight className="h-3 w-3 ml-1" aria-hidden="true" />
+              </div>
+            </Link>
 
             {/* Primærnæringer */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
+            <Link 
+              to="/kunnskapsbank/sametinget/primaernaering"
+              className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full hover:border-green-300"
+            >
               <div className="mb-4 p-3 bg-green-50 text-green-600 rounded-lg w-fit group-hover:scale-110 transition-transform">
-                <Tractor className="h-6 w-6" />
+                <Tractor className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-3">Primærnæringer</h3>
+              <h3 className="text-xl font-bold mb-3 group-hover:text-green-600 transition-colors">Primærnæringer</h3>
               <p className="text-muted-foreground mb-4 text-sm flex-grow">
-                Støtte til tilleggsnæring for reindrift, samt støtte til fiskebåt, jordbruk og marine næringer.
+                Fiske, jordbruk og reindrift. Nye satser for 2025 på driftsbygninger (løsdrift).
               </p>
               <ul className="space-y-2 text-sm text-gray-600 mb-6">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Kombinasjonsnæringer prioriteres</span>
+                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" aria-hidden="true" />
+                  <span>Støtte til løsdriftsfjøs (50%)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Førstegangs-investeringer i fiskebåt</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Tilleggsnæring i reindrift</span>
+                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" aria-hidden="true" />
+                  <span>Førstegangskjøp av båt</span>
                 </li>
               </ul>
-              <a
-                href="https://sametinget.no/stipend-og-tilskudd/oversikt-over-tilskuddsordninger/naring/marine-naringer/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center text-sm font-medium text-primary hover:underline"
-              >
-                Les mer hos Sametinget
-                <ExternalLink className="h-3 w-3 ml-1" />
-              </a>
-            </div>
+              <div className="mt-auto inline-flex items-center text-sm font-medium text-primary group-hover:translate-x-2 transition-transform">
+                Se satser for 2025
+                <ArrowRight className="h-3 w-3 ml-1" aria-hidden="true" />
+              </div>
+            </Link>
 
-            {/* Kreative næringer */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
-              <div className="mb-4 p-3 bg-pink-50 text-pink-600 rounded-lg w-fit group-hover:scale-110 transition-transform">
-                <Music className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Kreative næringer</h3>
-              <p className="text-muted-foreground mb-4 text-sm flex-grow">
-                Støtte til musikk, litteratur, visuell kunst og scenekunst. Både prosjektstøtte og etablererstipend.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600 mb-6">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Prosjektstøtte til utgivelser</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Turnéstøtte og formidling</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Artiststipend</span>
-                </li>
-              </ul>
-              <a
-                href="https://sametinget.no/stipend-og-tilskudd/oversikt-over-tilskuddsordninger/kultur/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center text-sm font-medium text-primary hover:underline"
-              >
-                Les mer hos Sametinget
-                <ExternalLink className="h-3 w-3 ml-1" />
-              </a>
-            </div>
-
-            {/* Samisk reiseliv */}
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
-              <div className="mb-4 p-3 bg-blue-50 text-blue-600 rounded-lg w-fit group-hover:scale-110 transition-transform">
-                <MapPin className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Samisk reiseliv</h3>
-              <p className="text-muted-foreground mb-4 text-sm flex-grow">
-                Støtte til utvikling av samiske reiselivsprodukter som formidler samisk kultur på en autentisk måte.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600 mb-6">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Krav om samisk kulturelement</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Produktutvikling og markedsføring</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
-                  <span>Infrastruktur og tilrettelegging</span>
-                </li>
-              </ul>
-              <a
-                href="https://sametinget.no/stipend-og-tilskudd/oversikt-over-tilskuddsordninger/naring/samisk-reiseliv/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center text-sm font-medium text-primary hover:underline"
-              >
-                Les mer hos Sametinget
-                <ExternalLink className="h-3 w-3 ml-1" />
-              </a>
-            </div>
           </div>
         </section>
 
@@ -231,7 +191,7 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
         <section id="cluster2" className="scroll-mt-24 bg-gray-50 rounded-3xl p-8 lg:p-12">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-3 bg-white text-primary rounded-xl shadow-sm">
-              <FileText className="h-6 w-6" />
+              <FileText className="h-6 w-6" aria-hidden="true" />
             </div>
             <h2 className="text-3xl font-bold text-foreground">Unngå at pengene må betales tilbake</h2>
           </div>
@@ -247,15 +207,15 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
                 <h4 className="font-bold mb-2 text-primary">Averdi hjelper deg med:</h4>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-green-500" />
+                    <CheckCircle2 className="h-5 w-5 text-green-500" aria-hidden="true" />
                     <span>Prosjektregnskap oppsatt etter kravene</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-green-500" />
+                    <CheckCircle2 className="h-5 w-5 text-green-500" aria-hidden="true" />
                     <span>Revisorbekreftelse (via partnere) ved behov</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-green-500" />
+                    <CheckCircle2 className="h-5 w-5 text-green-500" aria-hidden="true" />
                     <span>Sluttrapportering innen fristen</span>
                   </li>
                 </ul>
@@ -267,7 +227,7 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
               <div className="space-y-4">
                 <div className="flex gap-4 items-start">
                   <div className="p-2 bg-red-100 text-red-600 rounded-lg mt-1">
-                    <AlertCircle className="h-5 w-5" />
+                    <AlertCircle className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div>
                     <h4 className="font-bold">Manglende skille mellom privat og næring</h4>
@@ -276,7 +236,7 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
                 </div>
                 <div className="flex gap-4 items-start">
                   <div className="p-2 bg-red-100 text-red-600 rounded-lg mt-1">
-                    <AlertCircle className="h-5 w-5" />
+                    <AlertCircle className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div>
                     <h4 className="font-bold">Glemte frister</h4>
@@ -285,7 +245,7 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
                 </div>
                 <div className="flex gap-4 items-start">
                   <div className="p-2 bg-red-100 text-red-600 rounded-lg mt-1">
-                    <AlertCircle className="h-5 w-5" />
+                    <AlertCircle className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div>
                     <h4 className="font-bold">Feil timeføring av eget arbeid</h4>
@@ -301,7 +261,7 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
         <section id="cluster3" className="scroll-mt-24">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-3 bg-green-100 text-green-600 rounded-xl">
-              <MapPin className="h-6 w-6" />
+              <MapPin className="h-6 w-6" aria-hidden="true" />
             </div>
             <h2 className="text-3xl font-bold text-foreground">Kan din bedrift søke? (STN-området)</h2>
           </div>
@@ -328,7 +288,7 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
                 {/* Placeholder for Map */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
                   <div className="text-center">
-                    <MapPin className="h-12 w-12 mx-auto mb-2 opacity-50" />
+                    <MapPin className="h-12 w-12 mx-auto mb-2 opacity-50" aria-hidden="true" />
                     <p>Kart over STN-området</p>
                   </div>
                 </div>
@@ -353,7 +313,7 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
             ].map((item, i) => (
               <div key={i} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
                 <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
-                  <HelpCircle className="h-5 w-5 text-primary" />
+                  <HelpCircle className="h-5 w-5 text-primary" aria-hidden="true" />
                   {item.q}
                 </h4>
                 <p className="text-muted-foreground pl-7">{item.a}</p>
