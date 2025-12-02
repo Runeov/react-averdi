@@ -58,8 +58,11 @@
     "tailwindcss": "^4.1.17",
     "tailwindcss-animate": "^1.0.7",
     "typescript-eslint": "^8.46.3"
+  },
+  "overrides": {
+    "react-helmet-async": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   }
 }
-
-
-//npm install react-helmet-async --legacy-peer-deps //
