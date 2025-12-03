@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import tiltakssonenNorgeskart from '../assets/tiltakssonen_norgeskart.avif';
 import artikkelTilleggskatt from '../assets/artikkel_tilleggskatt.avif';
 
