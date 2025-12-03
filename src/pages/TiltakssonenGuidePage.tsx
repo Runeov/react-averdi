@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CheckCircle2, MapPin, Building2, Users, FileText, ArrowRight, ExternalLink, Info, Calendar, Scale, HeartHandshake, AlertTriangle, Newspaper, Quote } from 'lucide-react';
+import { CheckCircle2, Building2, Users, ArrowRight, ExternalLink, Scale, HeartHandshake, AlertTriangle, Newspaper, Quote } from 'lucide-react';
 import tiltakssonenKart from '../assets/tiltakssonen_norgeskart.avif';
 import SEO from '../components/SEO';
 import ArbeidsgiveravgiftCalculator from '../components/ArbeidsgiveravgiftCalculator';
