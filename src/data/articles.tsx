@@ -2,59 +2,6 @@ import { useState, type ReactNode } from 'react';
 import tiltakssonenNorgeskart from '../assets/tiltakssonen_norgeskart.avif';
 import artikkelTilleggskatt from '../assets/artikkel_tilleggskatt.avif';
 
-// --- KOMPONENT: SPAR-KALKULATOR ---
-const SavingsCalculator = () => {
-  const [payroll, setPayroll] = useState<number>(5000000); // Standard 5 mill
-  const rateSouth = 0.141; // 14.1%
-  const rateNorth = 0.00;  // 0%
-
-  const costSouth = Math.round(payroll * rateSouth);
-  const costNorth = Math.round(payroll * rateNorth);
-  const savings = costSouth - costNorth;
-
-  // Formatere penger (eks: 705 000 kr)
-  const formatCurrency = (val: number) =>
-    new Intl.NumberFormat('no-NO', { style: 'currency', currency: 'NOK', maximumFractionDigits: 0 }).format(val);
-
-  return (
-    <div className="my-12 p-6 bg-slate-50 border border-slate-200 rounded-xl shadow-sm">
-      <h3 className="text-lg font-bold text-slate-900 mb-4">💰 Sjekk effekten for din bedrift</h3>
-      
-      <div className="mb-6">
-        <label className="block text-sm font-medium text-slate-700 mb-2">
-          Dine årlige lønnskostnader (brutto):
-        </label>
-        <div className="relative">
-          <input
-            type="number"
-            value={payroll}
-            onChange={(e) => setPayroll(Number(e.target.value))}
-            className="w-full p-3 border border-slate-300 rounded-lg text-lg focus:ring-2 focus:ring-blue-500 outline-none pr-12"
-            placeholder="F.eks 5000000"
-          />
-          <span className="absolute right-4 top-4 text-slate-400 font-medium">NOK</span>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-white p-4 rounded-lg border border-slate-100">
-          <p className="text-xs text-slate-500 uppercase tracking-wide font-semibold">Avgift i Sør-Norge (14,1%)</p>
-          <p className="text-xl font-semibold text-slate-700">{formatCurrency(costSouth)}</p>
-        </div>
-        <div className="bg-green-50 p-4 rounded-lg border border-green-200 ring-1 ring-green-500">
-          <p className="text-xs text-green-700 uppercase tracking-wide font-bold">Avgift i Tiltakssonen (0%)</p>
-          <p className="text-xl font-bold text-green-800">{formatCurrency(costNorth)}</p>
-        </div>
-      </div>
-
-      <div className="mt-6 pt-6 border-t border-slate-200 text-center">
-        <p className="text-sm text-slate-500 mb-1">Direkte likviditetsfordel per år:</p>
-        <p className="text-4xl font-extrabold text-blue-600">{formatCurrency(savings)}</p>
-      </div>
-    </div>
-  );
-};
-
 // --- DATA DEFINISJONER ---
 
 export interface Article {
@@ -97,11 +44,9 @@ export const articles: Article[] = [
           I Finnmark og Nord-Troms (Tiltakssonen) er satsen for arbeidsgiveravgift <strong>0%</strong>. Mange bedriftsledere ser tallet, men regner ikke på hva det faktisk betyr for bunnlinjen før slutten av året.
         </p>
         <p>
-          Bruk kalkulatoren under for å se hva forskjellen utgjør for din lønnsmasse:
+          
         </p>
 
-        {/* INTERAKTIV KALKULATOR */}
-        <SavingsCalculator />
 
         <h3>Hvem gjelder nullsatsen for?</h3>
         <p>
