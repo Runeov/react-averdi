@@ -106,6 +106,12 @@ export function Navbar() {
                 Kunnskapsbank
               </Link>
               <Link
+                to="/aktuelt/regler-tiltakssonen-2025"
+                className={navLinkClass(location.pathname.startsWith('/aktuelt'))}
+              >
+                Aktuelt
+              </Link>
+              <Link
                 to="/farger"
                 className={navLinkClass(location.pathname === '/farger')}
               >
@@ -177,6 +183,17 @@ export function Navbar() {
                 }`}
               >
                 Kunnskapsbank
+              </Link>
+              <Link
+                to="/aktuelt/regler-tiltakssonen-2025"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-3 rounded-xl w-full text-left text-base font-medium transition-colors ${
+                  location.pathname.startsWith('/aktuelt')
+                    ? 'text-[#E86C1F] bg-[#E86C1F]/10'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-[#E86C1F]'
+                }`}
+              >
+                Aktuelt
               </Link>
               <button
                 onClick={() => scrollToSection('contact')}

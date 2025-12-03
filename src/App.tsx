@@ -31,6 +31,8 @@ const DokumentasjonPage = lazy(() => import('./pages/duodji/DokumentasjonPage').
 const KompetansehevingPage = lazy(() => import('./pages/duodji/KompetansehevingPage').then(m => ({ default: m.KompetansehevingPage })));
 
 const StylesheetPage = lazy(() => import('./components/StylesheetPage').then(module => ({ default: module.StylesheetPage })));
+import ArticlePage from './pages/ArticlePage';
+import ContactPage from './pages/ContactPage';
 
 // Loading Spinner
 const PageLoader = () => (
@@ -80,6 +82,8 @@ export default function App() {
             <Route path="/kunnskapsbank/handel" element={<HandelPage />} />
             <Route path="/kunnskapsbank/organisasjoner" element={<OrganisasjonPage />} />
             <Route path="/farger" element={<StylesheetPage onBack={() => window.history.back()} />} />
+            <Route path="/aktuelt/:slug" element={<ArticlePage />} />
+            <Route path="/kontakt" element={<ContactPage />} />
           </Routes>
         </Suspense>
         <Footer />
