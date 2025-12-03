@@ -112,10 +112,10 @@ export function Navbar() {
                 Aktuelt
               </Link>
               <Link
-                to="/farger"
-                className={navLinkClass(location.pathname === '/farger')}
+                to="/kunnskapsbank/tiltakssonen"
+                className={navLinkClass(location.pathname === '/kunnskapsbank/tiltakssonen')}
               >
-                Farger
+                Dybdeguide
               </Link>
             </div>
           </div>

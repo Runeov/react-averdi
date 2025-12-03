@@ -33,6 +33,7 @@ const KompetansehevingPage = lazy(() => import('./pages/duodji/KompetansehevingP
 const StylesheetPage = lazy(() => import('./components/StylesheetPage').then(module => ({ default: module.StylesheetPage })));
 import ArticlePage from './pages/ArticlePage';
 import ContactPage from './pages/ContactPage';
+import TiltakssonenGuidePage from './pages/TiltakssonenGuidePage';
 
 // Loading Spinner
 const PageLoader = () => (
@@ -84,6 +85,7 @@ export default function App() {
             <Route path="/farger" element={<StylesheetPage onBack={() => window.history.back()} />} />
             <Route path="/aktuelt/:slug" element={<ArticlePage />} />
             <Route path="/kontakt" element={<ContactPage />} />
+            <Route path="/kunnskapsbank/tiltakssonen" element={<TiltakssonenGuidePage />} />
           </Routes>
         </Suspense>
         <Footer />
