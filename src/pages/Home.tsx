@@ -1,7 +1,7 @@
 import { Hero } from '../components/Hero';
 import { TrustStrip } from '../components/TrustStrip';
 import { Services } from '../components/Services';
-import { About } from '../components/About';
+import { SalesPitch } from './SalesPitch';
 import { ContactPanel } from '../components/ContactPanel';
 import { KunnskapsbankTeaser } from '../components/KunnskapsbankTeaser';
 
@@ -11,7 +11,7 @@ export function Home() {
       <Hero />
       <TrustStrip />
       <Services />
-      <About />
+     <SalesPitch />
       <KunnskapsbankTeaser />
       <ContactPanel />
     </main>

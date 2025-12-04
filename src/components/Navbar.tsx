@@ -93,12 +93,12 @@ export function Navbar() {
               >
                 Tjenester
               </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className={navLinkClass(false)}
+              <Link
+                to="/om-oss"
+                className={navLinkClass(location.pathname === '/om-oss')}
               >
                 Om oss
-              </button>
+              </Link>
               <Link
                 to="/kunnskapsbank"
                 className={navLinkClass(location.pathname.startsWith('/kunnskapsbank'))}
@@ -167,12 +167,17 @@ export function Navbar() {
               >
                 Tjenester
               </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="text-gray-600 hover:bg-gray-50 hover:text-[#E86C1F] block px-4 py-3 rounded-xl w-full text-left text-base font-medium transition-colors"
+              <Link
+                to="/om-oss"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-3 rounded-xl w-full text-left text-base font-medium transition-colors ${
+                  location.pathname === '/om-oss'
+                    ? 'text-[#E86C1F] bg-[#E86C1F]/10'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-[#E86C1F]'
+                }`}
               >
                 Om oss
-              </button>
+              </Link>
               <Link
                 to="/kunnskapsbank"
                 onClick={() => setIsMenuOpen(false)}

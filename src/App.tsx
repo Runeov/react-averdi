@@ -8,9 +8,29 @@ import { Loader2 } from 'lucide-react';
 
 // Core pages (Load instantly)
 import { Home } from './pages/Home';
+import { SalesPitch } from './pages/SalesPitch';
 
 // Lazy Load pages (Load only when clicked)
 const KunnskapsbankPage = lazy(() => import('./pages/KunnskapsbankPage').then(m => ({ default: m.KunnskapsbankPage })));
+
+// New Hub & Spoke Structure
+// Sametinget Hub
+const KulturSprakPage = lazy(() => import('./pages/kunnskapsbank/sametinget/kultur-sprak'));
+const NaeringsstottePage = lazy(() => import('./pages/kunnskapsbank/sametinget/naeringsstotte'));
+const InstitusjonsutviklingPage = lazy(() => import('./pages/kunnskapsbank/sametinget/institusjonsutvikling'));
+const DuodjiNewPage = lazy(() => import('./pages/kunnskapsbank/sametinget/duodji'));
+
+// Bedrifter Hub
+const ArbeidsgiveravgiftPage = lazy(() => import('./pages/kunnskapsbank/bedrifter/tiltakssonen/arbeidsgiveravgift'));
+const FinnmarksfradragPage = lazy(() => import('./pages/kunnskapsbank/bedrifter/tiltakssonen/finnmarksfradrag'));
+const KassasystemPage = lazy(() => import('./pages/kunnskapsbank/bedrifter/handel/kassasystem'));
+
+// Organisasjoner Hub
+const StotteordningerPage = lazy(() => import('./pages/kunnskapsbank/organisasjoner/stotteordninger'));
+const MomskompensasjonPage = lazy(() => import('./pages/kunnskapsbank/organisasjoner/momskompensasjon'));
+const IdrettslagPage = lazy(() => import('./pages/kunnskapsbank/organisasjoner/idrettslag'));
+
+// Legacy pages (to be migrated)
 const SametingetPage = lazy(() => import('./pages/SametingetPage').then(m => ({ default: m.SametingetPage })));
 const HandelPage = lazy(() => import('./pages/HandelPage').then(m => ({ default: m.HandelPage })));
 const OrganisasjonPage = lazy(() => import('./pages/OrganisasjonPage').then(m => ({ default: m.OrganisasjonPage })));
@@ -61,6 +81,7 @@ export default function App() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/om-oss" element={<SalesPitch />} />
             <Route path="/kunnskapsbank" element={<KunnskapsbankPage />} />
             <Route path="/kunnskapsbank/sametinget" element={<SametingetPage />} />
             
@@ -86,6 +107,23 @@ export default function App() {
             <Route path="/aktuelt/:slug" element={<ArticlePage />} />
             <Route path="/kontakt" element={<ContactPage />} />
             <Route path="/kunnskapsbank/tiltakssonen" element={<TiltakssonenGuidePage />} />
+
+            {/* NEW HUB & SPOKE ROUTES */}
+            {/* Sametinget Hub */}
+            <Route path="/kunnskapsbank/sametinget/kultur-sprak" element={<KulturSprakPage />} />
+            <Route path="/kunnskapsbank/sametinget/naeringsstotte" element={<NaeringsstottePage />} />
+            <Route path="/kunnskapsbank/sametinget/institusjonsutvikling" element={<InstitusjonsutviklingPage />} />
+            <Route path="/kunnskapsbank/sametinget/duodji" element={<DuodjiNewPage />} />
+
+            {/* Bedrifter Hub */}
+            <Route path="/kunnskapsbank/bedrifter/tiltakssonen/arbeidsgiveravgift" element={<ArbeidsgiveravgiftPage />} />
+            <Route path="/kunnskapsbank/bedrifter/tiltakssonen/finnmarksfradrag" element={<FinnmarksfradragPage />} />
+            <Route path="/kunnskapsbank/bedrifter/handel/kassasystem" element={<KassasystemPage />} />
+
+            {/* Organisasjoner Hub */}
+            <Route path="/kunnskapsbank/organisasjoner/stotteordninger" element={<StotteordningerPage />} />
+            <Route path="/kunnskapsbank/organisasjoner/momskompensasjon" element={<MomskompensasjonPage />} />
+            <Route path="/kunnskapsbank/organisasjoner/idrettslag" element={<IdrettslagPage />} />
           </Routes>
         </Suspense>
         <Footer />
