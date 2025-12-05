@@ -5,9 +5,7 @@ import {
   Mail,
   Phone,
   MapPin,
-  Users,
-  Award,
-  Briefcase
+  Users
 } from 'lucide-react';
 import { useState } from 'react';
 

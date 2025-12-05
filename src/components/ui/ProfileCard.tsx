@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Home, ArrowRight } from 'lucide-react';
+import { Mail, Phone, Home } from 'lucide-react';
 
 /**
  * SplitProfileCard
@@ -25,10 +25,10 @@ const SplitProfileCard = ({
   const [imageError, setImageError] = useState(false);
 
   // Theme configuration map
-  const themes = {
+  const themes: Record<string, { bar: string; textHigh: string }> = {
     blue: {
       bar: "bg-[#20638f]",
-      textHigh: "text-[#20638f]", 
+      textHigh: "text-[#20638f]",
     },
     red: {
       bar: "bg-[#962d22]",
