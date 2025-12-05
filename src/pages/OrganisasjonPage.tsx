@@ -8,13 +8,14 @@ export function OrganisasjonPage() {
   return (
     <main className="pt-20">
       <Helmet>
-        <title>Regnskap for Lag og Foreninger | Frivillighet | Averdi</title>
+        <title>Regnskap for Lag og Foreninger | Idrett & Frivillighet | Averdi</title>
         <meta 
           name="description" 
-          content="Enkel økonomistyring for lag og foreninger. Vi hjelper med medlemsregister, momskompensasjon og årsregnskap for frivillige organisasjoner." 
+          content="Enklere hverdag for kasserer og styre. Vi hjelper idrettslag og foreninger med regnskap, momskompensasjon, medlemslister og årsmøtepapirer." 
         />
-        <meta name="keywords" content="regnskap forening, kasserer idrettslag, momskompensasjon frivillighet, økonomi organisasjon" />
+        <meta name="keywords" content="regnskap forening, kasserer idrettslag, momskompensasjon, frivillighetsregisteret, styrearbeid, årsmøte, nord-norge" />
       </Helmet>
+      
       <OrganisasjonHub onBack={() => navigate('/kunnskapsbank')} />
     </main>
   );

@@ -9,19 +9,66 @@ import {
   Briefcase, 
   Palette, 
   Tractor, 
-  ExternalLink, 
   Camera, 
   ArrowRight 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 interface SametingetHubProps {
   onBack: () => void;
 }
 
 export function SametingetHub({ onBack }: SametingetHubProps) {
+  // Define Structured Data for Google (FAQ Schema)
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hvor mye kan jeg få i støtte fra Sametinget?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dette varierer per ordning. For variert næringsliv og investeringer er grensen ofte 500 000 kr (opptil 40% dekning). For jordbruksbygg er grensen økt til 800 000 kr (50% dekning) i 2025."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Når utbetales pengene?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tilskudd utbetales som regel etterskuddsvis, eller i rater etter hvert som du dokumenterer utgifter i regnskapet. Du må ofte ha likviditet til å legge ut selv først (inkludert MVA)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kan jeg få støtte til lønn?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sametinget gir sjelden støtte til ordinær drift. Unntaket er etablererstipend der du kan få dekket deler av lønn i en oppstartsfase (inntil 15 000 kr/mnd)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Må jeg ha egenkapital?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, du må kunne finansiere den delen av prosjektet som Sametinget ikke dekker (restfinansiering). Dette kan være banklån, egne midler, eller i noen tilfeller eget arbeid (inntil 20%)."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-background animate-in fade-in duration-500">
+      {/* Inject Schema for Google */}
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+      </Helmet>
+
       {/* Hero Section */}
       <div className="relative bg-primary/5 py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -297,7 +344,7 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
           </div>
         </section>
 
-        {/* Cluster 4: FAQ */}
+        {/* Cluster 4: FAQ with Internal Links */}
         <section id="faq" className="scroll-mt-24 max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">Ofte stilte spørsmål</h2>
@@ -305,20 +352,45 @@ export function SametingetHub({ onBack }: SametingetHubProps) {
           </div>
 
           <div className="space-y-4">
-            {[
-              { q: "Hvor mye kan jeg få i støtte?", a: "Dette varierer per ordning, men for variert næringsliv er grensen ofte 500 000 kr. For investeringer kan du ofte få inntil 35% av kostnadene dekket." },
-              { q: "Når kommer pengene?", a: "Tilskudd utbetales som regel etterskuddsvis, eller i rater etter hvert som du dokumenterer utgifter. Du må ofte legge ut selv først." },
-              { q: "Kan jeg få støtte til lønn?", a: "Sametinget gir sjelden støtte til ordinær drift/lønn. Unntaket er ofte etablererstipend eller prosjektledelse i en avgrenset utviklingsfase." },
-              { q: "Hva er kravet til egenkapital?", a: "Dette varierer, men du må ofte vise at du kan finansiere den delen av prosjektet som Sametinget ikke dekker (restfinansiering)." }
-            ].map((item, i) => (
-              <div key={i} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
-                  <HelpCircle className="h-5 w-5 text-primary" aria-hidden="true" />
-                  {item.q}
-                </h4>
-                <p className="text-muted-foreground pl-7">{item.a}</p>
-              </div>
-            ))}
+            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+              <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
+                <HelpCircle className="h-5 w-5 text-primary" aria-hidden="true" />
+                Hvor mye kan jeg få i støtte?
+              </h4>
+              <p className="text-muted-foreground pl-7">
+                Dette varierer per ordning. For <Link to="/kunnskapsbank/sametinget/variert-naeringsliv" className="text-primary hover:underline">variert næringsliv</Link> og investeringer er grensen ofte <strong>500 000 kr</strong> (opptil 40% dekning). For <Link to="/kunnskapsbank/sametinget/primaernaering" className="text-primary hover:underline">jordbruksbygg</Link> er grensen økt til <strong>800 000 kr</strong> (50% dekning) i 2025.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+              <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
+                <HelpCircle className="h-5 w-5 text-primary" aria-hidden="true" />
+                Når kommer pengene?
+              </h4>
+              <p className="text-muted-foreground pl-7">
+                Tilskudd utbetales som regel <strong>etterskuddsvis</strong>, eller i rater etter hvert som du dokumenterer utgifter i regnskapet. Du må ofte ha likviditet til å legge ut selv først (inkludert MVA).
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+              <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
+                <HelpCircle className="h-5 w-5 text-primary" aria-hidden="true" />
+                Kan jeg få støtte til lønn?
+              </h4>
+              <p className="text-muted-foreground pl-7">
+                Sametinget gir sjelden støtte til ordinær drift. Unntaket er <strong>etablererstipend</strong> (se <Link to="/kunnskapsbank/sametinget/duodji/etablererstotte" className="text-primary hover:underline">etablererstøtte Duodji</Link> eller <Link to="/kunnskapsbank/sametinget/samisk-reiseliv" className="text-primary hover:underline">Kreativ Næring</Link>) der du kan få dekket deler av lønn i en oppstartsfase.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+              <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
+                <HelpCircle className="h-5 w-5 text-primary" aria-hidden="true" />
+                Hva er kravet til egenkapital?
+              </h4>
+              <p className="text-muted-foreground pl-7">
+                Du må kunne finansiere den delen av prosjektet som Sametinget ikke dekker (restfinansiering). Dette kan være banklån, egne midler, eller i noen tilfeller <Link to="/kunnskapsbank/sametinget/variert-naeringsliv" className="text-primary hover:underline">eget arbeid</Link> (inntil 20%).
+              </p>
+            </div>
           </div>
         </section>
 

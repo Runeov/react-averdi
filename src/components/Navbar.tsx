@@ -93,12 +93,12 @@ export function Navbar() {
               >
                 Tjenester
               </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className={navLinkClass(false)}
+              <Link
+                to="/om-oss"
+                className={navLinkClass(location.pathname === '/om-oss')}
               >
                 Om oss
-              </button>
+              </Link>
               <Link
                 to="/kunnskapsbank"
                 className={navLinkClass(location.pathname.startsWith('/kunnskapsbank'))}
@@ -106,10 +106,16 @@ export function Navbar() {
                 Kunnskapsbank
               </Link>
               <Link
-                to="/farger"
-                className={navLinkClass(location.pathname === '/farger')}
+                to="/aktuelt/regler-tiltakssonen-2025"
+                className={navLinkClass(location.pathname.startsWith('/aktuelt'))}
               >
-                Farger
+                Aktuelt
+              </Link>
+              <Link
+                to="/kunnskapsbank/tiltakssonen"
+                className={navLinkClass(location.pathname === '/kunnskapsbank/tiltakssonen')}
+              >
+                Dybdeguide
               </Link>
             </div>
           </div>
@@ -161,12 +167,17 @@ export function Navbar() {
               >
                 Tjenester
               </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="text-gray-600 hover:bg-gray-50 hover:text-[#E86C1F] block px-4 py-3 rounded-xl w-full text-left text-base font-medium transition-colors"
+              <Link
+                to="/om-oss"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-3 rounded-xl w-full text-left text-base font-medium transition-colors ${
+                  location.pathname === '/om-oss'
+                    ? 'text-[#E86C1F] bg-[#E86C1F]/10'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-[#E86C1F]'
+                }`}
               >
                 Om oss
-              </button>
+              </Link>
               <Link
                 to="/kunnskapsbank"
                 onClick={() => setIsMenuOpen(false)}
@@ -177,6 +188,17 @@ export function Navbar() {
                 }`}
               >
                 Kunnskapsbank
+              </Link>
+              <Link
+                to="/aktuelt/regler-tiltakssonen-2025"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-3 rounded-xl w-full text-left text-base font-medium transition-colors ${
+                  location.pathname.startsWith('/aktuelt')
+                    ? 'text-[#E86C1F] bg-[#E86C1F]/10'
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-[#E86C1F]'
+                }`}
+              >
+                Aktuelt
               </Link>
               <button
                 onClick={() => scrollToSection('contact')}

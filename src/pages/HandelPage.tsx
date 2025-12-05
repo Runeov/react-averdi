@@ -8,13 +8,14 @@ export function HandelPage() {
   return (
     <main className="pt-20">
       <Helmet>
-        <title>Regnskap for Handel og Butikk | Lønnsom Drift | Averdi</title>
+        <title>Regnskap for Butikk & Handel | Kassesystem & Lager | Averdi</title>
         <meta 
           name="description" 
-          content="Optimaliser din butikkdrift med Averdi. Vi bistår handelstand med varelagerstyring, kassesystemer og marginanalyser for økt lønnsomhet." 
+          content="Driver du butikk eller nettbutikk? Vi har spesialisert oss på regnskap for handel. Få hjelp med varelager, kassesystem (POS) og integrasjoner mot nettbutikk." 
         />
-        <meta name="keywords" content="regnskap butikk, butikkøkonomi, varelagerstyring, lønnsomhet handel, regnskapsfører detaljhandel" />
+        <meta name="keywords" content="regnskap butikk, kassesystem, varelagerstyring, nettbutikk regnskap, shopify norge, poweroffice go butikk" />
       </Helmet>
+      
       <HandelHub onBack={() => navigate('/kunnskapsbank')} />
     </main>
   );

@@ -1,342 +1,119 @@
-import { Mail, Phone, User, Linkedin, MessageCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { FeatureTabs } from '../components/ui/FeatureTabs';
+import type { FeatureTabItem } from '../components/ui/FeatureTabs';
 
-// --- TeamCard Component (For resten av teamet - Tilbake til blå/primary) ---
-interface TeamCardProps {
-  name: string;
-  role: string;
-  email: string;
-  phone: string;
-  photo?: string;
-  description?: string;
-  onViewProfile?: () => void;
-}
+// Assets
+import regnskapIcon from '../assets/regnskap.avif';
+import lonnIcon from '../assets/lonn.avif';
+import raadgivingIcon from '../assets/raadgiving.avif';
+import fakturaIcon from '../assets/faktura.avif';
 
-function TeamCard({ name, role, email, phone, photo, description, onViewProfile }: TeamCardProps) {
-  return (
-    <div className="relative bg-white rounded-xl shadow-lg border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col overflow-hidden group">
-      {/* Reverted to standard Primary (Blue) gradient */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 to-primary/10"></div>
-      
-      <div className="p-6 text-center flex flex-col h-full">
-        <div className="mb-6 flex-shrink-0 relative inline-block mx-auto">
-          <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          {photo ? (
-            <img
-              src={photo}
-              alt={`${name} - ${role}`}
-              className="relative w-28 h-28 rounded-full object-cover border-4 border-white shadow-md group-hover:scale-105 transition-transform duration-300"
-            />
-          ) : (
-            <div className="relative w-28 h-28 rounded-full bg-gradient-to-br from-gray-50 to-gray-100 border-4 border-white shadow-md flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-              <span className="text-3xl text-primary font-bold">
-                {name.charAt(0)}
-              </span>
-            </div>
-          )}
-        </div>
-        
-        <h3 className="text-xl font-bold mb-1 flex-shrink-0 text-foreground">{name}</h3>
-        <p className="text-primary font-medium mb-4 flex-shrink-0 text-sm uppercase tracking-wide">{role}</p>
-        
-        <div className="mb-6 flex-1 flex items-center justify-center min-h-[60px]">
-          <p className="text-sm text-muted-foreground leading-relaxed text-center">
-            {description || "Engasjert regnskapsfører dedikert til å hjelpe våre kunder med profesjonelle økonomitjenester."}
-          </p>
-        </div>
-        
-        <div className="space-y-3 mt-auto w-full">
-          {onViewProfile && (
-            <button
-              onClick={onViewProfile}
-              className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-primary/5 text-primary hover:bg-primary hover:text-white border border-primary/10 hover:border-transparent gap-2 mb-2 group/btn"
-            >
-              <User className="h-4 w-4" />
-              Se profil
-            </button>
-          )}
-          
-          <div className="flex justify-center gap-2 pt-4 border-t border-gray-100">
-            <a 
-              href={`mailto:${email}`} 
-              aria-label={`Send e-post til ${name}`}
-              className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-            >
-              <Mail className="h-4 w-4" />
-            </a>
-            
-            <a 
-              href={`tel:${phone}`} 
-              aria-label={`Ring ${name}`}
-              className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-            >
-              <Phone className="h-4 w-4" />
-            </a>
-            
-            <button 
-              aria-label={`Send melding til ${name}`}
-              className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-            >
-              <MessageCircle className="h-4 w-4" />
-            </button>
-            
-            <button 
-              aria-label={`Se ${name} på LinkedIn`}
-              className="p-2 rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-            >
-              <Linkedin className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+export function Services() {
+  const navigate = useNavigate();
 
-// --- Main About Component ---
-
-interface AboutProps {
-  onViewProfile?: (employeeId: string) => void;
-}
-
-export function About({ onViewProfile }: AboutProps) {
-  // Placeholder image URL since local file might be missing
-  const placeholderImage = "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1632&q=80";
-
-  const team = [
+  // Her definerer vi dataene for denne spesifikke seksjonen
+  const servicesData: FeatureTabItem[] = [
     {
-      id: "ingvald-laiti",
-      name: "Ingvald Laiti",
-      role: "Daglig leder / Statsautorisert regnskapsfører",
-      email: "ingvald.laiti@averdi.no",
-      phone: "907 67 993",
-      description: "Leder teamet med faglig tyngde og sikrer det solide fundamentet."
+      id: "regnskap",
+      icon: regnskapIcon,
+      title: "Regnskap",
+      shortDesc: "Full kontroll på tallene",
+      content: "Vi tar hånd om hele regnskapsførselen for din bedrift. Fra daglig bokføring til årsoppgjør sørger vi for at alt er i orden. Skybasert regnskap via Power Office GO eller Finago Office gir deg oppdatert regnskap til enhver tid med full systemtilgang.",
+      bullets: [
+        "Løpende bokføring og bilagsbehandling",
+        "Perioderapportering og årsregnskap",
+        "Mva-oppgaver og skattemeldinger",
+        "Remittering og prosjektregnskap"
+      ],
+      link: "/tjenester/regnskap"
     },
     {
-      id: "jan-atle-guttorm",
-      name: "Jan Atle Guttorm",
-      role: "Regnskapsfører",
-      email: "jan.atle.guttorm@averdi.no",
-      phone: "915 48 089",
-      description: "Din garantist for orden. Leverer presis regnskapsføring som gir deg full kontroll i hverdagen. Over 30 års erfaring i bransjen."
+      id: "lonn",
+      icon: lonnIcon,
+      title: "Lønn",
+      shortDesc: "Korrekt lønn til rett tid",
+      content: "Vårt lønnssystem håndterer alt fra lønnskjøring til rapportering til myndighetene. Vi sørger for at alle ansatte får riktig lønn til rett tid, og at alle lovpålagte rapporter sendes inn korrekt og i tide.",
+      bullets: [
+        "Lønnskjøring og lønnsslipp",
+        "A-melding og skatterapportering",
+        "Feriepengeberegning",
+        "Digitale reiseregninger"
+      ],
+      link: "/tjenester/lonn"
     },
     {
-      id: "hilde-laiti",
-      name: "Hilde M. Laiti",
-      role: "Regnskapsfører",
-      email: "hilde.marie.laiti@averdi.no",
-      phone: "400 44 918",
-      description: "Gjør økonomistyringen enklere for deg. Bruker effektive løsninger for å frigjøre tid til kjernevirksomheten."
+      id: "fakturering",
+      icon: fakturaIcon,
+      title: "Fakturering",
+      shortDesc: "Bedre likviditet",
+      content: "Vi hjelper deg med effektiv fakturering som forbedrer cash flow. Våre systemer automatiserer fakturautsendelse og purringer, slik at du kan fokusere på kjernevirksomheten din.",
+      bullets: [
+        "Automatisert fakturautsendelse",
+        "Påminnelser og inkassooppfølging",
+        "Kundeoppfølging",
+        "Integrasjon mot bank"
+      ],
+      link: "/tjenester/fakturering"
     },
     {
-      id: "alida-norvang",
-      name: "Alida G. Norvang",
-      role: "Regnskapsfører",
-      email: "alida.norvang@averdi.no",
-      phone: "480 52 329",
-      description: "Nøyaktig og pålitelig. Sikrer at regnskapet ditt er en stabil plattform for alle dine viktige beslutninger. Over 30 års erfaring i bransjen."
-    },
-    {
-      id: "tonje-iren-anti",
-      name: "Tonje Iren Anti",
-      role: "Statsautorisert regnskapsfører",
-      email: "tonje.iren.anti@averdi.no",
-      phone: "480 23 265",
-      description: "En engasjert støttespiller som passer på at regnskapet ditt alltid er oppdatert."
-    },
-    {
-      id: "linda-kildedam",
-      name: "Linda Marja Anti Kildedam",
-      role: "Økonomirådgiver",
-      email: "linda.kildedam@averdi.no",
-      phone: "480 51 672",
-      description: "Gir deg trygghet og oversikt. Hun sikrer at beslutningsgrunnlaget ditt alltid er i orden."
-    },
-    {
-      id: "john-david-utsi-gaup",
-      name: "John David Utsi Gaup",
-      role: "Økonomirådgiver",
-      email: "John.davit@averdi.no",
-      phone: "480 23 265",
-      description: "Bistår med strategisk rådgivning og analyser for å sikre lønnsom drift og sunn økonomisk utvikling."
+      id: "raadgiving",
+      icon: raadgivingIcon,
+      title: "Rådgivning",
+      shortDesc: "Strategisk vekst",
+      content: "Med vår erfaring gir vi deg strategisk rådgivning som hjelper bedriften din å vokse. Vi ser på hele bildet - fra skatteoptimalisering til langsiktig økonomisk planlegging.",
+      bullets: [
+        "Strategisk økonomisk planlegging",
+        "Skatteoptimalisering og strukturering",
+        "Budsjett og prognoser",
+        "Verdivurdering"
+      ],
+      link: "/tjenester/raadgiving"
     }
   ];
 
-  const generalManager = team.find(member => member.id === "ingvald-laiti");
-  const restOfTeam = team.filter(member => member.id !== "ingvald-laiti");
-
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-background">
+    <section id="services" className="py-24 relative overflow-hidden bg-white">
       {/* Background decoration */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[100px]"></div>
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-gray-50 to-white"></div>
       </div>
       
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* --- Intro Header --- */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            Om Averdi
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E86C1F]/10 text-[#E86C1F] text-sm font-medium mb-4">
+            Våre Tjenester
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-            Din lokale partner siden 1989
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-slate-900">
+            Komplette økonomitjenester
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Vi kombinerer lokal kunnskap med moderne teknologi for å gi deg de beste løsningene.
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Velg en tjeneste under for å se hvordan vi kan forenkle din hverdag.
           </p>
         </div>
 
-        {/* --- Main Story / Hero --- */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl lg:h-full min-h-[500px] lg:min-h-[500px] group">
-            <div className="absolute inset-0 bg-black/60 lg:hidden z-10"></div>
-            {/* Using placeholder image if local file is missing */}
-            <img
-              src={placeholderImage}
-              alt="Averdi kontormiljø"
-              className="absolute inset-0 w-full h-full object-cover lg:relative transition-transform duration-700 group-hover:scale-105"
-            />
-            
-            <div className="relative z-20 p-8 flex flex-col justify-center h-full lg:hidden text-white">
-              <h2 className="text-3xl mb-4 font-bold drop-shadow-md text-center">
-                Historien vår
-              </h2>
-              <div className="space-y-4 text-lg leading-relaxed font-medium drop-shadow-sm text-center">
-                <p>
-                  Averdi ble etablert i 1989 som Laitis Regnskapskontor, og ble til Averdi Karasjok AS i 1999.
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="hidden lg:block text-left">
-            <div className="space-y-8 text-lg text-muted-foreground leading-relaxed">
-              <div className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-2xl font-bold text-foreground mb-4">Lokal forankring</h3>
-                <p>
-                  Averdi ble etablert i 1989 som Laitis Regnskapskontor, og ble til Averdi Karasjok AS i 1999. Med vårt kontor i Karasjok er vi dypt forankret i regionen, og kombinerer vår lokale kunnskap med profesjonelle regnskapstjenester for organisasjoner, småbedrifter og handel.
-                </p>
-              </div>
-              
-              <div className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-2xl font-bold text-foreground mb-4">Din suksess er vårt mål</h3>
-                <p>
-                  Vi brenner for å se våre kunder lykkes, enten du driver en organisasjon, småbedrift eller handel. Vår kompetanse sikrer at din økonomi er i trygge hender.
-                </p>
-              </div>
+        {/* Reusable Component */}
+        <FeatureTabs items={servicesData} themeColor="#E86C1F" />
 
-              <div className="bg-white/50 backdrop-blur-sm p-8 rounded-2xl border border-primary/5 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-2xl font-bold text-foreground mb-4">Spesialkompetanse</h3>
-                <p>
-                  Vi har omfattende erfaring med regnskap for Samiske organisasjoner og institusjoner. Vår lokale forankring i Karasjok gir oss unik innsikt i regionens behov.
-                </p>
-              </div>
+        {/* CTA */}
+        <div className="mt-20 text-center">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-white rounded-2xl shadow-lg border border-[#E86C1F]/10 max-w-3xl mx-auto hover:shadow-xl transition-shadow">
+            <div className="p-3 bg-[#E86C1F]/10 rounded-full text-[#E86C1F]">
+              <span className="text-2xl">💡</span>
             </div>
-          </div>
-        </div>
-
-        {/* --- General Manager Section (Ingvald) - Kept with Averdi Colors --- */}
-        {generalManager && (
-          <div className="mb-24">
-             <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-[#E86C1F]/10 relative group hover:border-[#E86C1F]/30 transition-colors duration-300">
-                {/* Averdi Colors preserved here */}
-                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#E86C1F] to-[#F4B223]"></div>
-                
-                <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#E86C1F]/5 rounded-full blur-3xl group-hover:bg-[#E86C1F]/10 transition-colors"></div>
-                
-                <div className="p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center relative z-10">
-                   <div className="flex-1 text-center md:text-left space-y-6">
-                      <div className="inline-block px-4 py-1.5 bg-[#E86C1F]/10 text-[#E86C1F] rounded-full text-sm font-semibold mb-2">
-                        Daglig Leder
-                      </div>
-                      <h3 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                        {generalManager.name}
-                      </h3>
-                      <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-                        <p>
-                          Ingvald Laiti er daglig leder og statsautorisert regnskapsfører. Han startet Laitis Regnskapskontor i 1989, som ble til Averdi Karasjok AS i 1999. Han leder teamet med solid erfaring og faglig tyngde.
-                        </p>
-                        <p>
-                          Ingvald er dedikert til å opprettholde Averdis posisjon som en fremtidsrettet og tillitvekkende samarbeidspartner, med et sterkt fokus på kundenes behov og lokal tilstedeværelse fra Karasjok.
-                        </p>
-                      </div>
-                      
-                      <div className="pt-6 flex flex-wrap gap-6 justify-center md:justify-start items-center border-t border-gray-100 mt-6">
-                        <a href={`mailto:${generalManager.email}`} className="text-[#E86C1F] hover:text-[#E86C1F]/80 font-medium flex items-center gap-2 transition-colors">
-                          <span className="p-2 bg-[#E86C1F]/10 rounded-full">
-                            <Mail className="h-4 w-4" />
-                          </span>
-                          {generalManager.email}
-                        </a>
-                        <span className="text-gray-300 hidden md:inline h-6 w-px bg-gray-200"></span>
-                        <div className="text-muted-foreground flex items-center gap-2">
-                           <span className="p-2 bg-[#E86C1F]/10 rounded-full text-[#E86C1F]">
-                             <Phone className="h-4 w-4" />
-                           </span>
-                           {generalManager.phone}
-                        </div>
-                      </div>
-                   </div>
-                </div>
-              </div>
+            <div className="text-left flex-1">
+              <h3 className="font-bold text-lg text-slate-900">Søker du støtte fra Sametinget?</h3>
+              <p className="text-slate-500 text-sm">
+                Vi har laget en komplett guide om tilskuddsordninger, krav og søknadsprosess.
+              </p>
             </div>
-          </div>
-        )}
-
-        {/* --- Team Grid --- */}
-        <section className="py-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary-foreground text-sm font-medium mb-4">
-              Vårt Team
-            </div>
-            <h3 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Våre ansatte
-            </h3>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Våre erfarne regnskapsførere og økonomirådgivere står klare til å hjelpe deg
-            </p>
-          </div>
-          
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {restOfTeam.map((member) => (
-              <div key={member.id} className="h-full">
-                <TeamCard
-                  name={member.name}
-                  role={member.role}
-                  email={member.email}
-                  phone={member.phone}
-                  description={member.description}
-                  onViewProfile={onViewProfile ? () => onViewProfile(member.id) : undefined}
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* --- Badges --- */}
-        <div className="grid md:grid-cols-3 gap-8 mt-24 text-center bg-white/50 backdrop-blur-md rounded-2xl p-10 border border-primary/5 shadow-lg">
-          <div className="p-4 group">
-            <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🏆</div>
-            <h4 className="text-xl font-bold mb-2">Autorisert</h4>
-            <p className="text-muted-foreground">
-              Godkjent av Finanstilsynet med høye kvalitetsstandarder
-            </p>
-          </div>
-          <div className="p-4 group">
-            <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🤝</div>
-            <h4 className="text-xl font-bold mb-2">Solid erfaring</h4>
-            <p className="text-muted-foreground">
-              Trygg partner for bedrifter i regionen siden 1989
-            </p>
-          </div>
-          <div className="p-4 group">
-            <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🔒</div>
-            <h4 className="text-xl font-bold mb-2">Trygg og sikker</h4>
-            <p className="text-muted-foreground">
-              All data behandles i henhold til GDPR og norsk lovgivning
-            </p>
+            <button
+              onClick={() => navigate('/kunnskapsbank/sametinget')}
+              className="whitespace-nowrap px-6 py-2.5 bg-slate-900 text-white font-medium rounded-full hover:bg-[#E86C1F] transition-colors"
+            >
+              Les guiden vår
+            </button>
           </div>
         </div>
       </div>

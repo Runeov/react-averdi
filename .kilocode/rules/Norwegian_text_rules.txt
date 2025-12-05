@@ -1,0 +1,84 @@
+Here is a mirrored ruleset adapted specifically for Norwegian grammar, culture, and common LLM pitfalls in the Norwegian language.
+
+Note: A critical difference is the Oxford comma, which is grammatically incorrect in Norwegian (unlike English) and has been removed/reversed in this ruleset.
+
+Norwegian Language Rules
+Stemme og tone (Voice and Tone)
+Skriv som folk snakker. Unngå kansellistil, "corporate bullshit" og unødvendig markedsføringsspråk.
+
+Vær selvsikker og direkte. Unngå usikkerhet som "jeg tror", "kanskje" eller "det kan tenkes at".
+
+Bruk aktiv form. Unngå passiv form (ord som slutter på -s, f.eks. "det gjøres"). Skriv heller hvem som gjør hva ("vi gjør dette").
+
+Vær positiv. Si hva noe er, heller enn hva det ikke er.
+
+Bruk "Du" fremfor "Vi". Snakk direkte til leseren.
+
+Varm tone. Unngå stive formuleringer. Bruk "ikke" og "har" naturlig, men unngå gammeldagse eller byråkratiske vendinger (f.eks. bruk "hvis" i stedet for "dersom").
+
+Spesifisitet og bevis (Specificity and Evidence)
+Vær spesifikk. Bruk fakta og data fremfor vage adjektiver og superlativer.
+
+Underbygg påstander. Bruk konkrete eksempler eller tall.
+
+Fremhev kunden. Snakk om kunder og brukere fremfor bedriftens egne bragder.
+
+Realistiske eksempler. Bruk produktbaserte, ekte eksempler i kode/tekst fremfor "foo/bar/Ola/Kari".
+
+Gjør det konkret. Innholdet skal være visuelt og etterprøvbart.
+
+Titler og overskrifter (Title Creation)
+Gi et løfte. Leseren skal vite nøyaktig hva de får ved å klikke.
+
+Vær unik og nyttig. Del noe som faktisk gjør leseren bedre til noe meningsfult.
+
+Unngå vage titler. "Mine tanker om X" er svakt. Titler skal være meninger eller delbare fakta.
+
+Skriv innholdet først. Lag tittelen til slutt når du vet hva kjernen i teksten er.
+
+Forbudte ord (Banned Words)
+"Litt" / "en smule" -> Fjern.
+
+"Faktisk" / "egentlig" -> Fjern.
+
+"Smidig" (Agile) -> Fjern (hvis brukt som buzzword).
+
+"Angivelig" / "uten tvil" -> Fjern.
+
+"Bistand" -> Bruk "hjelp".
+
+"Forsøke" -> Bruk "prøve".
+
+"Anvende" -> Bruk "bruke".
+
+"I forhold til" -> Fjern (nesten alltid brukt feil). Bruk "når det gjelder" eller "sammenlignet med".
+
+"Fokusere på" -> Bruk "konsentrere seg om" eller "jobbe med".
+
+Unngå LLM-mønstre (Avoid LLM Patterns)
+Ingen "cliche" introer. Aldri start med "I dagens digitale samfunn", "I en stadig mer..." eller "La oss dykke ned i".
+
+Ingen meta-kommentarer. Unngå "Godt spørsmål", "La meg hjelpe deg med det", eller "Som en AI".
+
+Ingen skole-avslutninger. Unngå "Avslutningsvis", "For å oppsummere", eller "Konklusjon".
+
+Fjern fyllord. Kutt ord som "Videre", "Dessuten", "Ytterligere" hvis de ikke er strengt nødvendige.
+
+Ingen overdreven sikring. Unngå "kan potensielt", "det er viktig å merke seg at".
+
+Punktlister. Bruk kulepunkter i stedet for nummererte lister der rekkefølgen ikke betyr noe.
+
+Ingen falske referanser. Slett tomme kildehenvisninger som "[1]".
+
+Tegnsetting og formatering (Punctuation and Formatting)
+Ingen Oxford-komma. På norsk skal det ikke være komma før "og" i en oppramsing (rød, hvit og blå), med mindre det er helt nødvendig for å unngå misforståelser.
+
+Tankestrek. Bruk tankestrek (–) med mellomrom, ikke bindestrek (-) eller em-dash (—) uten mellomrom, for innskutte setninger.
+
+Spar på utropstegnene. Bruk dem nesten aldri.
+
+Start setninger variert. Du kan starte med "Men" og "Og", men ikke overdriv.
+
+Setningscasing. Bruk stor forbokstav kun i første ord i overskrifter (ikke "Title Case" som på engelsk).
+
+Punktum over komma. Del heller opp lange setninger for klarhet.
