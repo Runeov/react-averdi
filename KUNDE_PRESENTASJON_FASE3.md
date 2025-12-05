@@ -125,7 +125,7 @@ En bedrift i Karasjok søker: "Arbeidsgiveravgift tiltakssonen"
 
 #### 3. **Interaktive verktøy som konverterer besøkende til kunder**
 
-Vi har allerede lagt til en **arbeidsgiveravgift-kalkulator** i artikkelen om Tiltakssonen.
+Vi har allerede lagt til en Veldig enkelt eksempel med **arbeidsgiveravgift-kalkulator** i artikkelen om Tiltakssonen.
 
 **Hvordan dette fungerer:**
 

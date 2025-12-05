@@ -9,9 +9,16 @@ import { Loader2 } from 'lucide-react';
 // Core pages (Load instantly)
 import { Home } from './pages/Home';
 import { SalesPitch } from './pages/SalesPitch';
+import { MeetOurTeamPage } from './pages/Om-Oss';
 
 // Lazy Load pages (Load only when clicked)
 const KunnskapsbankPage = lazy(() => import('./pages/KunnskapsbankPage').then(m => ({ default: m.KunnskapsbankPage })));
+
+// Services Pages
+const RegnskapPage = lazy(() => import('./pages/services/RegnskapPage').then(m => ({ default: m.RegnskapPage })));
+const LonnPage = lazy(() => import('./pages/services/LonnPage').then(m => ({ default: m.LonnPage })));
+const FaktureringPage = lazy(() => import('./pages/services/FaktureringPage').then(m => ({ default: m.FaktureringPage })));
+const RaadgivingPage = lazy(() => import('./pages/services/RaadgivingPage').then(m => ({ default: m.RaadgivingPage })));
 
 // New Hub & Spoke Structure
 // Sametinget Hub
@@ -81,7 +88,7 @@ export default function App() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/om-oss" element={<SalesPitch />} />
+            <Route path="/om-oss" element={<MeetOurTeamPage />} />
             <Route path="/kunnskapsbank" element={<KunnskapsbankPage />} />
             <Route path="/kunnskapsbank/sametinget" element={<SametingetPage />} />
             
@@ -124,6 +131,12 @@ export default function App() {
             <Route path="/kunnskapsbank/organisasjoner/stotteordninger" element={<StotteordningerPage />} />
             <Route path="/kunnskapsbank/organisasjoner/momskompensasjon" element={<MomskompensasjonPage />} />
             <Route path="/kunnskapsbank/organisasjoner/idrettslag" element={<IdrettslagPage />} />
+
+            {/* Services Routes */}
+            <Route path="/tjenester/regnskap" element={<RegnskapPage />} />
+            <Route path="/tjenester/lonn" element={<LonnPage />} />
+            <Route path="/tjenester/fakturering" element={<FaktureringPage />} />
+            <Route path="/tjenester/raadgiving" element={<RaadgivingPage />} />
           </Routes>
         </Suspense>
         <Footer />
