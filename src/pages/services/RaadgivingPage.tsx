@@ -1,17 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
-  CheckCircle2,
-  ArrowRight,
   Mail,
   Phone,
   Home,
-  ChevronDown,
-  TrendingUp,
-  PieChart,
-  Target,
-  Lightbulb
+  ChevronDown
 } from 'lucide-react';
 import { useState } from 'react';
 import { FeatureTabs, type FeatureTabItem } from '../../components/ui/FeatureTabs';

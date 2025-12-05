@@ -1,16 +1,12 @@
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
-  CheckCircle2,
   ArrowRight,
   Mail,
   Phone,
   Home,
   ChevronDown,
-  AlertTriangle,
-  ShieldCheck,
-  MapPin,
   TrendingUp,
   LineChart,
   Lightbulb
