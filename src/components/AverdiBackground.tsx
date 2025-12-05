@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function AverdiBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
