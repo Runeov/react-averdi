@@ -8,7 +8,6 @@ import { Loader2 } from 'lucide-react';
 
 // Core pages (Load instantly)
 import { Home } from './pages/Home';
-import { SalesPitch } from './pages/SalesPitch';
 import { MeetOurTeamPage } from './pages/Om-Oss';
 
 // Lazy Load pages (Load only when clicked)
