@@ -218,29 +218,41 @@ export function FaktureringPage() {
       <main className="bg-white">
         
         {/* --- HERO SECTION --- */}
-        <section className="relative overflow-hidden py-20 lg:py-28 bg-slate-50">
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-             <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-[#E86C1F]/10 blur-3xl opacity-70"></div>
-             <div className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] rounded-full bg-[#F4B223]/10 blur-3xl opacity-60"></div>
+        <section className="relative overflow-hidden py-20 lg:py-28 bg-slate-50 text-white">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            {/* Using an invoicing/financial growth related image - Replace with actual image if available */}
+            <img 
+              src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1920" 
+              alt="Fakturering og Likviditet" 
+              className="w-full h-full object-cover"
+            />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-slate-900/70"></div>
           </div>
 
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-10">
+             <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-[#E86C1F]/20 blur-3xl opacity-50"></div>
+             <div className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] rounded-full bg-[#F4B223]/20 blur-3xl opacity-40"></div>
+          </div>
+
+          <div className="container mx-auto px-4 relative z-20">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block px-4 py-1.5 bg-[#E86C1F]/10 text-[#E86C1F] rounded-full text-sm font-bold mb-6">
+              <div className="inline-block px-4 py-1.5 bg-[#E86C1F]/20 text-white border border-[#E86C1F] rounded-full text-sm font-bold mb-6 backdrop-blur-sm">
                 Fakturering & Likviditet
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-slate-900 leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white leading-tight">
                 Bedre likviditet, <br/>
                 <span className="text-[#E86C1F]">mindre bekymring.</span>
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-xl text-slate-100 mb-8 leading-relaxed max-w-2xl mx-auto">
                 Vi hjelper deg å få pengene inn på konto. Med automatiserte rutiner for fakturering og purring sikrer vi at du får betalt for jobben du gjør.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onClick={() => navigate('/kontakt')} className="px-8 py-4 bg-[#E86C1F] hover:bg-[#d65f18] text-white rounded-full font-bold transition-all shadow-lg shadow-orange-500/20">
+                <button onClick={() => navigate('/kontakt')} className="px-8 py-4 bg-[#E86C1F] hover:bg-[#d65f18] text-white rounded-full font-bold transition-all shadow-lg shadow-orange-500/20 border border-transparent">
                   Få hjelp med fakturering
                 </button>
-                <button onClick={() => document.getElementById('tjenester')?.scrollIntoView({behavior: 'smooth'})} className="px-8 py-4 bg-white text-slate-700 border-2 border-slate-200 hover:border-[#E86C1F] hover:text-[#E86C1F] rounded-full font-bold transition-all">
+                <button onClick={() => document.getElementById('tjenester')?.scrollIntoView({behavior: 'smooth'})} className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/50 hover:border-white rounded-full font-bold transition-all backdrop-blur-sm">
                   Se våre løsninger
                 </button>
               </div>
@@ -278,10 +290,10 @@ export function FaktureringPage() {
                 imageUrl="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
                 quote="Det handler ikke bare om å sende en faktura. Det handler om å bygge rutiner som sikrer at bedriften din alltid har midlene den trenger for å vokse."
                 socialLinks={{
-  home: "",
-  email: "ingvald.laiti@averdi.no",
-  phone: "90767993"
-}}
+                  home: "",
+                  email: "ingvald.laiti@averdi.no",
+                  phone: "90767993"
+                }}
               />
             </div>
           </div>
