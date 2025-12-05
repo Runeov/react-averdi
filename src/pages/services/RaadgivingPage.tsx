@@ -215,29 +215,41 @@ export function RaadgivingPage() {
       <main className="bg-white">
         
         {/* --- HERO SECTION --- */}
-        <section className="relative overflow-hidden py-20 lg:py-28 bg-slate-50">
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-             <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-[#E86C1F]/10 blur-3xl opacity-70"></div>
-             <div className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] rounded-full bg-[#F4B223]/10 blur-3xl opacity-60"></div>
+        <section className="relative overflow-hidden py-20 lg:py-28 bg-slate-50 text-white">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            {/* Using a meeting/advisory image - Replace with actual image if you have one */}
+            <img 
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+              alt="Strategisk Rådgivning" 
+              className="w-full h-full object-cover"
+            />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-slate-900/70"></div>
           </div>
 
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-10">
+             <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-[#E86C1F]/20 blur-3xl opacity-50"></div>
+             <div className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] rounded-full bg-[#F4B223]/20 blur-3xl opacity-40"></div>
+          </div>
+
+          <div className="container mx-auto px-4 relative z-20">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block px-4 py-1.5 bg-[#E86C1F]/10 text-[#E86C1F] rounded-full text-sm font-bold mb-6">
+              <div className="inline-block px-4 py-1.5 bg-[#E86C1F]/20 text-white border border-[#E86C1F] rounded-full text-sm font-bold mb-6 backdrop-blur-sm">
                 Rådgivning & Utvikling
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-slate-900 leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white leading-tight">
                 Fra tall til <br/>
                 <span className="text-[#E86C1F]">strategisk handling.</span>
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-xl text-slate-100 mb-8 leading-relaxed max-w-2xl mx-auto">
                 Vi hjelper deg å se mulighetene bak tallene. Enten du skal starte opp, vokse, eller trenger en sparringspartner i vanskelige tider, står vi klare.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onClick={() => navigate('/kontakt')} className="px-8 py-4 bg-[#E86C1F] hover:bg-[#d65f18] text-white rounded-full font-bold transition-all shadow-lg shadow-orange-500/20">
+                <button onClick={() => navigate('/kontakt')} className="px-8 py-4 bg-[#E86C1F] hover:bg-[#d65f18] text-white rounded-full font-bold transition-all shadow-lg shadow-orange-500/20 border border-transparent">
                   Book et møte
                 </button>
-                <button onClick={() => document.getElementById('eksperter')?.scrollIntoView({behavior: 'smooth'})} className="px-8 py-4 bg-white text-slate-700 border-2 border-slate-200 hover:border-[#E86C1F] hover:text-[#E86C1F] rounded-full font-bold transition-all">
+                <button onClick={() => document.getElementById('eksperter')?.scrollIntoView({behavior: 'smooth'})} className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/50 hover:border-white rounded-full font-bold transition-all backdrop-blur-sm">
                   Møt våre rådgivere
                 </button>
               </div>
@@ -315,7 +327,7 @@ export function RaadgivingPage() {
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-slate-900">Spørsmål om rådgivning?</h2>
-              <p className="text-slate-600 mt-2">Noen vanlige spørsmål vi får fra våre kunder.</p>
+              <p className="text-slate-600 mt-2">Noen vanlige spørsmålene vi får fra våre kunder.</p>
             </div>
 
             <div className="space-y-4">
