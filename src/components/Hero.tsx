@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import karasjokOver from '../assets/karasjok_Over.avif';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { AverdiBackground } from './AverdiBackground';
 
 export function Hero() {
   const navigate = useNavigate();
@@ -23,11 +24,7 @@ export function Hero() {
   return (
     // Endret padding-top fra pt-16/lg:pt-24 til pt-8/lg:pt-12 for å løfte innholdet
     <section className="relative overflow-hidden bg-background pt-8 pb-20 lg:pt-12 lg:pb-32">
-      {/* Background decoration - Updated to Averdi Colors */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[500px] h-[500px] bg-[#E86C1F]/10 rounded-full blur-[100px] opacity-70"></div>
-        <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[500px] h-[500px] bg-[#F4B223]/10 rounded-full blur-[100px] opacity-70"></div>
-      </div>
+      <AverdiBackground />
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">

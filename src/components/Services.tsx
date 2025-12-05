@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { FeatureTabs } from '../components/ui/FeatureTabs';
 import type { FeatureTabItem } from '../components/ui/FeatureTabs';
+import { AverdiBackground } from './AverdiBackground';
 
 // Assets
 import regnskapIcon from '../assets/regnskap.avif';
@@ -73,10 +74,7 @@ export function Services() {
 
   return (
     <section id="services" className="py-24 relative overflow-hidden bg-white">
-      {/* Background decoration */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-gray-50 to-white"></div>
-      </div>
+      <AverdiBackground />
       
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 relative z-10">
         
