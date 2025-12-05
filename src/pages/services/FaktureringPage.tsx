@@ -5,14 +5,17 @@ import {
   Mail,
   Phone,
   Home,
-  ChevronDown
+  ChevronDown,
+  ArrowRight,
+  CheckCircle2,
+  TrendingUp
 } from 'lucide-react';
 import { useState } from 'react';
 import { FeatureTabs, type FeatureTabItem } from '../../components/ui/FeatureTabs';
 
 // Assets
 import fakturaIcon from '../../assets/faktura.avif';
-import regnskapIcon from '../../assets/regnskap.avif'; // Using as fallback/variety
+import regnskapIcon from '../../assets/regnskap.avif'; 
 
 // --- COMPONENT: SplitProfileCard (Full Width Version) ---
 const SplitProfileCard = ({
@@ -20,13 +23,12 @@ const SplitProfileCard = ({
   surname = "Etternavn",
   role = "Rolle",
   quote = "Quote goes here.",
-  imageUrl = "https://placehold.co/1200x600/e2e8f0/1e293b?text=Profile", // Widescreen placeholder
+  imageUrl = "https://placehold.co/1200x600/e2e8f0/1e293b?text=Profile",
   colorTheme = "orange",
   socialLinks = { home: "", email: "", phone: "" }
 }) => {
   const [imageError, setImageError] = useState(false);
 
-  // Theme configuration map
   const themes: Record<string, { bar: string; textHigh: string }> = {
     blue: { bar: "bg-[#20638f]", textHigh: "text-[#20638f]" },
     red: { bar: "bg-[#962d22]", textHigh: "text-[#962d22]" },
@@ -37,15 +39,12 @@ const SplitProfileCard = ({
   const currentTheme = themes[colorTheme] || themes.orange;
 
   return (
-    // Container set to 100% width, min-height adjusted for banner look
     <div className="group relative w-full min-h-[500px] lg:min-h-[550px] bg-white overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 rounded-sm">
-      {/* Font Injection for Raleway */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;800&display=swap');
         .font-raleway { font-family: 'Raleway', sans-serif; }
       `}</style>
 
-      {/* Skewed Image Section - Adjusted for Full Width (Less skew width, more content space) */}
       <div className="absolute top-0 left-0 w-[45%] h-full overflow-hidden z-10 -skew-x-[12deg] origin-top-left bg-gray-200">
         <img 
           src={imageError ? "https://placehold.co/1200x600/e2e8f0/1e293b?text=Profile" : imageUrl}
@@ -56,21 +55,16 @@ const SplitProfileCard = ({
         <div className="absolute top-0 right-0 w-[5px] h-full bg-black/10 z-20" aria-hidden="true" />
       </div>
 
-      {/* Shadow Element */}
       <div className="absolute top-0 left-0 h-full w-[35%] bg-black/20 -skew-x-[15deg] shadow-[15px_0_25px_rgba(0,0,0,0.7)] pointer-events-none z-0 transform transition-all duration-500 group-hover:-translate-x-2" />
 
-      {/* Content Section - Occupies the right 55-60% */}
       <div className="absolute top-0 right-0 w-[60%] h-full z-20 flex flex-col justify-center p-8 lg:p-16 pb-20 font-raleway text-right">
         <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-300 ease-out">
-          
           <h2 className="text-3xl lg:text-5xl font-light uppercase border-b border-black/10 pb-4 mb-6 text-gray-800">
             {name} <span className={`font-extrabold ${currentTheme.textHigh}`}>{surname}</span>
           </h2>
-
           <p className="text-lg lg:text-xl text-gray-600 leading-relaxed opacity-80 mb-8 max-w-3xl ml-auto">
             {quote}
           </p>
-
           <div className="flex justify-end space-x-6 items-center">
             {socialLinks.home && (
               <a href={socialLinks.home} aria-label="Visit Website" className="text-gray-800 opacity-30 hover:opacity-100 hover:scale-110 transition-all duration-200 p-1">
@@ -91,7 +85,6 @@ const SplitProfileCard = ({
         </div>
       </div>
 
-      {/* Bottom Color Bar */}
       <div className={`absolute bottom-0 left-0 w-full p-4 px-12 text-right text-white text-base italic tracking-wide font-raleway font-medium z-30 transition-colors duration-300 ${currentTheme.bar}`}>
         {role}
       </div>
@@ -217,33 +210,104 @@ export function FaktureringPage() {
 
       <main className="bg-white">
         
-        {/* --- HERO SECTION --- */}
-        <section className="relative overflow-hidden py-20 lg:py-28 bg-slate-50">
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-             <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-[#E86C1F]/10 blur-3xl opacity-70"></div>
-             <div className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] rounded-full bg-[#F4B223]/10 blur-3xl opacity-60"></div>
+        {/* --- NEW HERO SECTION (Based on Hero.tsx style) --- */}
+        <section className="relative overflow-hidden bg-slate-50 pt-8 pb-20 lg:pt-12 lg:pb-32">
+          {/* Background decoration */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[500px] h-[500px] bg-[#E86C1F]/10 rounded-full blur-[100px] opacity-70"></div>
+            <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[500px] h-[500px] bg-[#F4B223]/10 rounded-full blur-[100px] opacity-70"></div>
           </div>
 
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block px-4 py-1.5 bg-[#E86C1F]/10 text-[#E86C1F] rounded-full text-sm font-bold mb-6">
-                Fakturering & Likviditet
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+              
+              {/* Text Content */}
+              <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+                
+                {/* Badge/Pill */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E86C1F]/10 text-[#E86C1F] text-sm font-medium mb-6">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E86C1F] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E86C1F]"></span>
+                  </span>
+                  Fakturering & Likviditet
+                </div>
+
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+                  Bedre likviditet, <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E86C1F] to-[#F4B223]">mindre bekymring.</span>
+                </h1>
+
+                <p className="text-lg sm:text-xl text-slate-600 mb-8 leading-relaxed">
+                  Vi hjelper deg å få pengene inn på konto. Effektive rutiner for fakturering og purring sikrer at du får betalt for jobben du gjør.
+                </p>
+
+                {/* Glassmorphism Box */}
+                <div className="space-y-4 text-base text-slate-600 mb-10 leading-relaxed bg-white/50 backdrop-blur-sm p-6 rounded-2xl border border-[#E86C1F]/10 shadow-sm">
+                  <p>
+                    <strong>Penger på konto</strong> er bedriftens oksygen. 
+                  </p>
+                  <p>
+                    Med Averdi får du tilgang til moderne systemer for <strong className="text-slate-900">EHF, Vipps-faktura og automatisk purring</strong>. Vi reduserer administrasjonstiden og øker sannsynligheten for raskt oppgjør.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <button
+                    onClick={() => navigate('/kontakt')}
+                    className="inline-flex items-center justify-center rounded-full text-base font-medium transition-all focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-[#E86C1F] to-[#F4B223] text-white hover:shadow-lg hover:shadow-[#E86C1F]/30 hover:-translate-y-0.5 h-12 px-8"
+                  >
+                    Få hjelp med fakturering
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </button>
+                  <button
+                    onClick={() => document.getElementById('tjenester')?.scrollIntoView({behavior: 'smooth'})}
+                    className="inline-flex items-center justify-center rounded-full text-base font-medium transition-all focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 border border-[#E86C1F]/20 bg-white/50 backdrop-blur-sm hover:bg-white/80 hover:text-[#E86C1F] h-12 px-8"
+                  >
+                    Se våre løsninger
+                  </button>
+                </div>
+
+                <div className="mt-8 flex items-center justify-center lg:justify-start gap-6 text-sm text-slate-500">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-600" />
+                    <span>Automatisk utsending</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-600" />
+                    <span>Full kontroll</span>
+                  </div>
+                </div>
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-slate-900 leading-tight">
-                Bedre likviditet, <br/>
-                <span className="text-[#E86C1F]">mindre bekymring.</span>
-              </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto">
-                Vi hjelper deg å få pengene inn på konto. Med automatiserte rutiner for fakturering og purring sikrer vi at du får betalt for jobben du gjør.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onClick={() => navigate('/kontakt')} className="px-8 py-4 bg-[#E86C1F] hover:bg-[#d65f18] text-white rounded-full font-bold transition-all shadow-lg shadow-orange-500/20">
-                  Få hjelp med fakturering
-                </button>
-                <button onClick={() => document.getElementById('tjenester')?.scrollIntoView({behavior: 'smooth'})} className="px-8 py-4 bg-white text-slate-700 border-2 border-slate-200 hover:border-[#E86C1F] hover:text-[#E86C1F] rounded-full font-bold transition-all">
-                  Se våre løsninger
-                </button>
+
+              {/* Image Content (Styled like Hero.tsx) */}
+              <div className="relative lg:h-full flex items-center justify-center">
+                <div className="relative w-full aspect-square max-w-[500px] lg:max-w-none group">
+                  {/* Decorative blob behind image */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-tr from-[#E86C1F]/20 to-[#F4B223]/20 rounded-full blur-2xl -z-10 transition-all duration-700 group-hover:blur-3xl"></div>
+                  
+                  <img 
+                    src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1920" 
+                    alt="Fakturering og Likviditet" 
+                    className="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white/50 transition-transform duration-700 group-hover:scale-[1.02]" 
+                  />
+                  
+                  {/* Floating Card: Status */}
+                  <div className="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-xl border border-[#E86C1F]/10 hidden sm:block animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#E86C1F]/10 p-2 rounded-lg text-[#E86C1F]">
+                        <TrendingUp size={24} />
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-500 uppercase font-semibold tracking-wider">Effekt</p>
+                        <p className="text-sm font-bold text-slate-900">Raskere innbetaling</p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
+
             </div>
           </div>
         </section>
@@ -278,10 +342,10 @@ export function FaktureringPage() {
                 imageUrl="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
                 quote="Det handler ikke bare om å sende en faktura. Det handler om å bygge rutiner som sikrer at bedriften din alltid har midlene den trenger for å vokse."
                 socialLinks={{
-  home: "",
-  email: "ingvald.laiti@averdi.no",
-  phone: "90767993"
-}}
+                  home: "",
+                  email: "ingvald.laiti@averdi.no",
+                  phone: "90767993"
+                }}
               />
             </div>
           </div>

@@ -235,30 +235,42 @@ export function LonnPage() {
       <main className="bg-white">
         
         {/* --- HERO SECTION --- */}
-        <section className="relative overflow-hidden py-20 lg:py-28 bg-slate-50">
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-             <div className="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-[#E86C1F]/10 blur-3xl opacity-70"></div>
-             <div className="absolute -bottom-1/2 -right-1/4 w-[600px] h-[600px] rounded-full bg-[#F4B223]/10 blur-3xl opacity-60"></div>
+        <section className="relative overflow-hidden py-20 lg:py-28 bg-slate-50 text-white">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            {/* Using a payroll/calculation focused image - Replace with actual image if available */}
+            <img 
+              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1920" 
+              alt="Lønn og HR" 
+              className="w-full h-full object-cover"
+            />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-slate-900/70"></div>
           </div>
 
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-10">
+             <div className="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-[#E86C1F]/20 blur-3xl opacity-50"></div>
+             <div className="absolute -bottom-1/2 -right-1/4 w-[600px] h-[600px] rounded-full bg-[#F4B223]/20 blur-3xl opacity-40"></div>
+          </div>
+
+          <div className="container mx-auto px-4 relative z-20">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block px-4 py-1.5 bg-[#E86C1F]/10 text-[#E86C1F] rounded-full text-sm font-bold mb-6">
+              <div className="inline-block px-4 py-1.5 bg-[#E86C1F]/20 text-white border border-[#E86C1F] rounded-full text-sm font-bold mb-6 backdrop-blur-sm">
                 Lønn & HR
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-slate-900 leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white leading-tight">
                 Korrekt lønn, <br/>
                 <span className="text-[#E86C1F]">hver eneste gang.</span>
               </h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-xl text-slate-100 mb-8 leading-relaxed max-w-2xl mx-auto">
                 Vi tar ansvaret for at dine ansatte får riktig lønn til rett tid. 
                 Slipp bekymringer for A-melding, reiseregninger og kompliserte regelverk i nord.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onClick={() => navigate('/kontakt')} className="px-8 py-4 bg-[#E86C1F] hover:bg-[#d65f18] text-white rounded-full font-bold transition-all shadow-lg shadow-orange-500/20">
+                <button onClick={() => navigate('/kontakt')} className="px-8 py-4 bg-[#E86C1F] hover:bg-[#d65f18] text-white rounded-full font-bold transition-all shadow-lg shadow-orange-500/20 border border-transparent">
                   Snakk med en lønnsekspert
                 </button>
-                <button onClick={() => document.getElementById('tjenester')?.scrollIntoView({behavior: 'smooth'})} className="px-8 py-4 bg-white text-slate-700 border-2 border-slate-200 hover:border-[#E86C1F] hover:text-[#E86C1F] rounded-full font-bold transition-all">
+                <button onClick={() => document.getElementById('tjenester')?.scrollIntoView({behavior: 'smooth'})} className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/50 hover:border-white rounded-full font-bold transition-all backdrop-blur-sm">
                   Se våre tjenester
                 </button>
               </div>
@@ -297,11 +309,10 @@ export function LonnPage() {
                   imageUrl="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1632&q=80"
                   quote="Tallene forteller historien om din bedrifts helse. Min jobb er å hjelpe deg å skrive neste kapittel, med fokus på vekst og trygghet."
                   socialLinks={{
-  home: "",
-  email: "ingvald.laiti@averdi.no",
-  phone: "90767993"
-}}
-
+                    home: "",
+                    email: "ingvald.laiti@averdi.no",
+                    phone: "90767993"
+                  }}
                 />
               </div>
 
