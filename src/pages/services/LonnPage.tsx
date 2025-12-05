@@ -9,7 +9,8 @@ import {
   ChevronDown,
   TrendingUp,
   LineChart,
-  Lightbulb
+  Lightbulb,
+  CheckCircle2
 } from 'lucide-react';
 import { useState } from 'react';
 import { FeatureTabs, type FeatureTabItem } from '../../components/ui/FeatureTabs';
@@ -235,45 +236,120 @@ export function LonnPage() {
       <main className="bg-white">
         
         {/* --- HERO SECTION --- */}
-        <section className="relative overflow-hidden py-20 lg:py-28 bg-slate-50 text-white">
-          {/* Background Image */}
+        {/* Adjusted padding for more compact large screen view (lg:pb-20 instead of 32) */}
+        <section className="relative overflow-hidden bg-slate-900 lg:bg-slate-50 pt-8 pb-20 lg:pt-12 lg:pb-20">
+
+          {/* BACKGROUNDS */}
           <div className="absolute inset-0 z-0">
-            {/* Using a payroll/calculation focused image - Replace with actual image if available */}
-            <img 
-              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1920" 
-              alt="Lønn og HR" 
-              className="w-full h-full object-cover"
-            />
-            {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-slate-900/70"></div>
+
+            {/* 1. Mobile/Tablet (< 1024px): Full Background Image with Overlay */}
+            <div className="absolute inset-0 lg:hidden">
+              <img
+                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1920"
+                alt="Lønn og HR"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-[2px]"></div>
+            </div>
+
+            {/* 2. Desktop (>= 1024px): Clean Background with Blobs */}
+            <div className="hidden lg:block absolute inset-0">
+               <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[500px] h-[500px] bg-[#E86C1F]/10 rounded-full blur-[100px] opacity-70"></div>
+               <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[500px] h-[500px] bg-[#F4B223]/10 rounded-full blur-[100px] opacity-70"></div>
+            </div>
           </div>
 
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-10">
-             <div className="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-[#E86C1F]/20 blur-3xl opacity-50"></div>
-             <div className="absolute -bottom-1/2 -right-1/4 w-[600px] h-[600px] rounded-full bg-[#F4B223]/20 blur-3xl opacity-40"></div>
-          </div>
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
-          <div className="container mx-auto px-4 relative z-20">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block px-4 py-1.5 bg-[#E86C1F]/20 text-white border border-[#E86C1F] rounded-full text-sm font-bold mb-6 backdrop-blur-sm">
-                Lønn & HR
+              {/* Text Content */}
+              {/* Text color adapts: White on Mobile (Dark BG) -> Slate on Desktop (Light BG) */}
+              <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+
+                {/* Badge/Pill */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 lg:bg-[#E86C1F]/10 text-orange-200 lg:text-[#E86C1F] text-sm font-medium mb-4 mt-0">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 lg:bg-[#E86C1F] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-400 lg:bg-[#E86C1F]"></span>
+                  </span>
+                  Lønn & HR
+                </div>
+
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white lg:text-slate-900 mb-6">
+                  Korrekt lønn, <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E86C1F] to-[#F4B223]">hver eneste gang.</span>
+                </h1>
+
+                <p className="text-lg sm:text-xl text-slate-200 lg:text-slate-600 mb-8 leading-relaxed">
+                  Vi tar ansvaret for at dine ansatte får riktig lønn til rett tid. Slipp bekymringer for A-melding, reiseregninger og kompliserte regelverk i nord.
+                </p>
+
+                {/* Info Box - Adapted for contrast */}
+                <div className="space-y-4 text-base text-slate-200 lg:text-slate-600 mb-10 leading-relaxed bg-white/10 lg:bg-white/50 backdrop-blur-sm p-6 rounded-2xl border border-white/10 lg:border-[#E86C1F]/10 shadow-sm">
+                  <p>
+                    <strong>Riktig lønn</strong> er grunnlaget for gode arbeidsforhold.
+                  </p>
+                  <p>
+                    Med Averdi får du tilgang til moderne systemer for <strong className="text-white lg:text-slate-900">A-melding, reiseregninger og sykepenger</strong>. Vi reduserer administrasjonstiden og sikrer korrekt utbetaling.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <button
+                    onClick={() => navigate('/kontakt')}
+                    className="inline-flex items-center justify-center rounded-full text-base font-medium transition-all focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-[#E86C1F] to-[#F4B223] text-white hover:shadow-lg hover:shadow-[#E86C1F]/30 hover:-translate-y-0.5 h-12 px-8"
+                  >
+                    Snakk med en lønnsekspert
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </button>
+                  <button
+                    onClick={() => document.getElementById('tjenester')?.scrollIntoView({behavior: 'smooth'})}
+                    className="inline-flex items-center justify-center rounded-full text-base font-medium transition-all focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 border border-white/20 lg:border-[#E86C1F]/20 bg-white/10 lg:bg-white/50 text-white lg:text-slate-600 backdrop-blur-sm hover:bg-white/20 lg:hover:bg-white/80 hover:text-white lg:hover:text-[#E86C1F] h-12 px-8"
+                  >
+                    Se våre tjenester
+                  </button>
+                </div>
+
+                <div className="mt-8 flex items-center justify-center lg:justify-start gap-6 text-sm text-slate-400 lg:text-slate-500">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 lg:text-green-600" />
+                    <span>Automatisk A-melding</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 lg:text-green-600" />
+                    <span>Full oversikt</span>
+                  </div>
+                </div>
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-                Korrekt lønn, <br/>
-                <span className="text-[#E86C1F]">hver eneste gang.</span>
-              </h1>
-              <p className="text-xl text-slate-100 mb-8 leading-relaxed max-w-2xl mx-auto">
-                Vi tar ansvaret for at dine ansatte får riktig lønn til rett tid. 
-                Slipp bekymringer for A-melding, reiseregninger og kompliserte regelverk i nord.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onClick={() => navigate('/kontakt')} className="px-8 py-4 bg-[#E86C1F] hover:bg-[#d65f18] text-white rounded-full font-bold transition-all shadow-lg shadow-orange-500/20 border border-transparent">
-                  Snakk med en lønnsekspert
-                </button>
-                <button onClick={() => document.getElementById('tjenester')?.scrollIntoView({behavior: 'smooth'})} className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/50 hover:border-white rounded-full font-bold transition-all backdrop-blur-sm">
-                  Se våre tjenester
-                </button>
+
+              {/* Image Content - Hidden on Mobile (< 1024px), Visible on Desktop */}
+              <div className="hidden lg:flex relative h-full items-center justify-center">
+                <div className="relative w-full aspect-square max-w-[500px] lg:max-w-none group">
+                  {/* Decorative blob behind image */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-tr from-[#E86C1F]/20 to-[#F4B223]/20 rounded-full blur-2xl -z-10 transition-all duration-700 group-hover:blur-3xl"></div>
+
+                  <img
+                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1920"
+                    alt="Lønn og HR"
+                    className="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white/50 transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+
+                  {/* Floating Card: Status */}
+                  <div className="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-xl border border-[#E86C1F]/10 hidden sm:block animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#E86C1F]/10 p-2 rounded-lg text-[#E86C1F]">
+                        <TrendingUp size={24} />
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-500 uppercase font-semibold tracking-wider">Effekt</p>
+                        <p className="text-sm font-bold text-slate-900">Nøyaktig utbetaling</p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
+
             </div>
           </div>
         </section>
