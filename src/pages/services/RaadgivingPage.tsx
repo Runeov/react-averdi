@@ -5,7 +5,12 @@ import {
   Mail,
   Phone,
   Home,
-  ChevronDown
+  ChevronDown,
+  ArrowRight,
+  TrendingUp,
+  CheckCircle2,
+  Lightbulb,
+  LineChart
 } from 'lucide-react';
 import { useState } from 'react';
 import { FeatureTabs, type FeatureTabItem } from '../../components/ui/FeatureTabs';
@@ -215,44 +220,120 @@ export function RaadgivingPage() {
       <main className="bg-white">
         
         {/* --- HERO SECTION --- */}
-        <section className="relative overflow-hidden py-20 lg:py-28 bg-slate-50 text-white">
-          {/* Background Image */}
+        {/* Adjusted padding for more compact large screen view (lg:pb-20 instead of 32) */}
+        <section className="relative overflow-hidden bg-slate-900 lg:bg-slate-50 pt-8 pb-20 lg:pt-12 lg:pb-20">
+
+          {/* BACKGROUNDS */}
           <div className="absolute inset-0 z-0">
-            {/* Using a meeting/advisory image - Replace with actual image if you have one */}
-            <img 
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-              alt="Strategisk Rådgivning" 
-              className="w-full h-full object-cover"
-            />
-            {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-slate-900/70"></div>
+
+            {/* 1. Mobile/Tablet (< 1024px): Full Background Image with Overlay */}
+            <div className="absolute inset-0 lg:hidden">
+              <img
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                alt="Rådgivning & Utvikling"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-[2px]"></div>
+            </div>
+
+            {/* 2. Desktop (>= 1024px): Clean Background with Blobs */}
+            <div className="hidden lg:block absolute inset-0">
+               <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[500px] h-[500px] bg-[#E86C1F]/10 rounded-full blur-[100px] opacity-70"></div>
+               <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[500px] h-[500px] bg-[#F4B223]/10 rounded-full blur-[100px] opacity-70"></div>
+            </div>
           </div>
 
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-10">
-             <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] rounded-full bg-[#E86C1F]/20 blur-3xl opacity-50"></div>
-             <div className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] rounded-full bg-[#F4B223]/20 blur-3xl opacity-40"></div>
-          </div>
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
-          <div className="container mx-auto px-4 relative z-20">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-block px-4 py-1.5 bg-[#E86C1F]/20 text-white border border-[#E86C1F] rounded-full text-sm font-bold mb-6 backdrop-blur-sm">
-                Rådgivning & Utvikling
+              {/* Text Content */}
+              {/* Text color adapts: White on Mobile (Dark BG) -> Slate on Desktop (Light BG) */}
+              <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+
+                {/* Badge/Pill */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 lg:bg-[#E86C1F]/10 text-orange-200 lg:text-[#E86C1F] text-sm font-medium mb-4 mt-0">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 lg:bg-[#E86C1F] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-400 lg:bg-[#E86C1F]"></span>
+                  </span>
+                  Rådgivning & Utvikling
+                </div>
+
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white lg:text-slate-900 mb-6">
+                  Fra tall til <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E86C1F] to-[#F4B223]">strategisk handling.</span>
+                </h1>
+
+                <p className="text-lg sm:text-xl text-slate-200 lg:text-slate-600 mb-8 leading-relaxed">
+                  Vi hjelper deg å se mulighetene bak tallene. Enten du skal starte opp, vokse, eller trenger en sparringspartner i vanskelige tider, står vi klare.
+                </p>
+
+                {/* Info Box - Adapted for contrast */}
+                <div className="space-y-4 text-base text-slate-200 lg:text-slate-600 mb-10 leading-relaxed bg-white/10 lg:bg-white/50 backdrop-blur-sm p-6 rounded-2xl border border-white/10 lg:border-[#E86C1F]/10 shadow-sm">
+                  <p>
+                    <strong>Strategisk rådgivning</strong> er grunnlaget for gode beslutninger.
+                  </p>
+                  <p>
+                    Med Averdi får du tilgang til ekspertise innen <strong className="text-white lg:text-slate-900">forretningsutvikling, skatteoptimalisering og vekststrategier</strong>. Vi hjelper deg å navigere i komplekse regler og finne de beste løsningene.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <button
+                    onClick={() => navigate('/kontakt')}
+                    className="inline-flex items-center justify-center rounded-full text-base font-medium transition-all focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-[#E86C1F] to-[#F4B223] text-white hover:shadow-lg hover:shadow-[#E86C1F]/30 hover:-translate-y-0.5 h-12 px-8"
+                  >
+                    Snakk med en rådgiver
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </button>
+                  <button
+                    onClick={() => document.getElementById('tjenester')?.scrollIntoView({behavior: 'smooth'})}
+                    className="inline-flex items-center justify-center rounded-full text-base font-medium transition-all focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 border border-white/20 lg:border-[#E86C1F]/20 bg-white/10 lg:bg-white/50 text-white lg:text-slate-600 backdrop-blur-sm hover:bg-white/20 lg:hover:bg-white/80 hover:text-white lg:hover:text-[#E86C1F] h-12 px-8"
+                  >
+                    Se våre tjenester
+                  </button>
+                </div>
+
+                <div className="mt-8 flex items-center justify-center lg:justify-start gap-6 text-sm text-slate-400 lg:text-slate-500">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 lg:text-green-600" />
+                    <span>Strategisk planlegging</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 lg:text-green-600" />
+                    <span>Ekspertise i nord</span>
+                  </div>
+                </div>
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-                Fra tall til <br/>
-                <span className="text-[#E86C1F]">strategisk handling.</span>
-              </h1>
-              <p className="text-xl text-slate-100 mb-8 leading-relaxed max-w-2xl mx-auto">
-                Vi hjelper deg å se mulighetene bak tallene. Enten du skal starte opp, vokse, eller trenger en sparringspartner i vanskelige tider, står vi klare.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onClick={() => navigate('/kontakt')} className="px-8 py-4 bg-[#E86C1F] hover:bg-[#d65f18] text-white rounded-full font-bold transition-all shadow-lg shadow-orange-500/20 border border-transparent">
-                  Book et møte
-                </button>
-                <button onClick={() => document.getElementById('eksperter')?.scrollIntoView({behavior: 'smooth'})} className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/50 hover:border-white rounded-full font-bold transition-all backdrop-blur-sm">
-                  Møt våre rådgivere
-                </button>
+
+              {/* Image Content - Hidden on Mobile (< 1024px), Visible on Desktop */}
+              <div className="hidden lg:flex relative h-full items-center justify-center">
+                <div className="relative w-full aspect-square max-w-[500px] lg:max-w-none group">
+                  {/* Decorative blob behind image */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-tr from-[#E86C1F]/20 to-[#F4B223]/20 rounded-full blur-2xl -z-10 transition-all duration-700 group-hover:blur-3xl"></div>
+
+                  <img
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                    alt="Rådgivning & Utvikling"
+                    className="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white/50 transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+
+                  {/* Floating Card: Status */}
+                  <div className="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-xl border border-[#E86C1F]/10 hidden sm:block animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#E86C1F]/10 p-2 rounded-lg text-[#E86C1F]">
+                        <TrendingUp size={24} />
+                      </div>
+                      <div>
+                        <p className="text-xs text-slate-500 uppercase font-semibold tracking-wider">Effekt</p>
+                        <p className="text-sm font-bold text-slate-900">Strategisk vekst</p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
+
             </div>
           </div>
         </section>
@@ -262,29 +343,24 @@ export function RaadgivingPage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
-                Vi hjelper deg å nå målene dine
+                En enklere hverdag for deg og din bedrift
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Vår kompetanse strekker seg langt utover debet og kredit. Se hvordan vi kan bistå din bedrift.
+                Vår kompetanse strekker seg langt utover debet og kredit. Klikk deg gjennom fanene for å se hva vi kan hjelpe deg med.
               </p>
             </div>
-            
-            <FeatureTabs items={raadgivingServicesData} themeColor="#E86C1F" /> 
+
+            <FeatureTabs items={raadgivingServicesData} themeColor="#E86C1F" />
           </div>
         </section>
 
-        {/* --- EXPERTS SECTION (2 COLUMNS) --- */}
-        <section id="eksperter" className="py-24 bg-slate-50 overflow-hidden">
+        {/* --- EXPERTS & SALES PITCH SECTION (50/50 Split) --- */}
+        <section className="py-24 bg-slate-50 overflow-hidden">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900">Møt våre eksperter</h2>
-              <p className="text-slate-600 mt-2">Dine sparringspartnere for vekst og utvikling.</p>
-            </div>
+            <div className="grid lg:grid-cols-2 gap-0 lg:gap-12 items-stretch min-h-[600px]">
 
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-              
-              {/* --- EXPERT 1: Ingvald --- */}
-              <div className="h-full">
+              {/* --- LEFT SIDE: SplitProfileCard (50% WIDTH) --- */}
+              <div className="w-full h-full flex flex-col">
                 <SplitProfileCard
                   name="Ingvald"
                   surname="Laiti"
@@ -300,22 +376,55 @@ export function RaadgivingPage() {
                 />
               </div>
 
-              {/* --- EXPERT 2: Jan-Atle --- */}
-              <div className="h-full">
-                <SplitProfileCard
-                  name="Jan-Atle"
-                  surname=" "
-                  role="Senior Bedriftsrådgiver"
-                  colorTheme="blue" 
-                  // Placeholder image for Jan-Atle
-                  imageUrl="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                  quote="Gode beslutninger krever godt grunnlag. Jeg hjelper deg med strategi, forretningsutvikling og de store linjene."
-                  socialLinks={{
-                    home: "",
-                    email: "post@averdi.no", // Generic until specific email is known
-                    phone: "78445050"
-                  }}
-                />
+              {/* --- RIGHT SIDE: SALES PITCH --- */}
+              <div className="flex flex-col justify-center lg:pl-8 py-8 lg:py-0">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-[#E86C1F] text-sm font-bold mb-6 border border-orange-200 w-fit">
+                  <TrendingUp className="w-4 h-4" />
+                  Verdiskapning i fokus
+                </div>
+
+                <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+                  Rådgivning er mer enn <br/>
+                  <span className="text-[#E86C1F]">bare lovpålagt rapportering.</span>
+                </h2>
+
+                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                  Mange ser på rådgivning som en kjedelig nødvendighet, men for oss er det fundamentet for gode beslutninger. Ingvald er ikke bare din rådgiver – han er din sparringspartner.
+                </p>
+
+                <div className="space-y-6 mb-10">
+                  <div className="flex gap-4 p-4 bg-white rounded-xl border border-slate-200 shadow-sm transition-shadow hover:shadow-md">
+                    <div className="p-3 bg-blue-50 text-blue-600 rounded-lg h-fit">
+                      <Lightbulb className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-lg">Strategisk Rådgivning</h4>
+                      <p className="text-slate-600 text-sm mt-1">
+                        Vi hjelper deg å tolke tallene slik at du kan styre bedriften mot økt lønnsomhet og vekst. Hva tjener du egentlig penger på?
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4 p-4 bg-white rounded-xl border border-slate-200 shadow-sm transition-shadow hover:shadow-md">
+                    <div className="p-3 bg-green-50 text-green-600 rounded-lg h-fit">
+                      <LineChart className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-lg">Full Oversikt</h4>
+                      <p className="text-slate-600 text-sm mt-1">
+                        Få kontroll på likviditet og nøkkeltall. Vi sørger for at du alltid har et oppdatert styringsgrunnlag tilgjengelig.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => navigate('/kontakt')}
+                  className="inline-flex items-center gap-2 text-[#E86C1F] font-bold text-lg hover:gap-3 transition-all group w-fit"
+                >
+                  Book et strategimøte med Ingvald
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
               </div>
 
             </div>
@@ -327,7 +436,7 @@ export function RaadgivingPage() {
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-slate-900">Spørsmål om rådgivning?</h2>
-              <p className="text-slate-600 mt-2">Noen vanlige spørsmålene vi får fra våre kunder.</p>
+              <p className="text-slate-600 mt-2">Her er noen av de vanligste spørsmålene vi får.</p>
             </div>
 
             <div className="space-y-4">
@@ -338,8 +447,8 @@ export function RaadgivingPage() {
                     className="flex items-center justify-between w-full p-6 text-left hover:bg-slate-100 transition-colors"
                   >
                     <span className="font-bold text-slate-900">{faq.question}</span>
-                    <ChevronDown 
-                      className={`w-5 h-5 text-slate-400 transition-transform ${openFaq === index ? 'rotate-180' : ''}`} 
+                    <ChevronDown
+                      className={`w-5 h-5 text-slate-400 transition-transform ${openFaq === index ? 'rotate-180' : ''}`}
                     />
                   </button>
                   <motion.div
@@ -360,12 +469,12 @@ export function RaadgivingPage() {
         {/* --- CTA SECTION --- */}
         <section className="py-24 bg-[#E86C1F] text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Klar for å ta neste steg?</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Klar til å ta strategiske beslutninger?</h2>
             <p className="text-xl text-orange-100 max-w-2xl mx-auto mb-10">
-              Uansett om du er i startgropen eller planlegger vekst, har vi kompetansen du trenger. La oss ta en uforpliktende prat.
+              La oss ta en prat om dine behov. Vi finner en løsning som passer din bedrift, slik at du kan fokusere på det du er best på.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
+              <button
                 onClick={() => navigate('/kontakt')}
                 className="px-8 py-4 bg-white text-[#E86C1F] rounded-full font-bold hover:bg-slate-50 transition-colors shadow-lg"
               >

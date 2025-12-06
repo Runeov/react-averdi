@@ -10,7 +10,9 @@ import {
   TrendingUp,
   LineChart,
   Lightbulb,
-  CheckCircle2
+  CheckCircle2,
+  Store,
+  Car
 } from 'lucide-react';
 import { useState } from 'react';
 import { FeatureTabs, type FeatureTabItem } from '../../components/ui/FeatureTabs';
@@ -396,39 +398,40 @@ export function LonnPage() {
               <div className="flex flex-col justify-center lg:pl-8 py-8 lg:py-0">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-[#E86C1F] text-sm font-bold mb-6 border border-orange-200 w-fit">
                   <TrendingUp className="w-4 h-4" />
-                  Verdiskapning i fokus
+                  Systemer & Rådgivning
                 </div>
                 
                 <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-                  Regnskap er mer enn <br/>
-                  <span className="text-[#E86C1F]">bare lovpålagt rapportering.</span>
+                  Fra kassaapparat til <br/>
+                  <span className="text-[#E86C1F]">lønnskonto.</span>
                 </h2>
                 
                 <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                  Mange ser på regnskap som en kjedelig nødvendighet, men for oss er det fundamentet for gode beslutninger. Ingvald er ikke bare din regnskapsfører – han er din sparringspartner.
+                  Å drive butikk eller bedrift handler om mange bevegelige deler. Hvordan skal kassa settes opp for å håndtere kontantsalg korrekt? Hvordan påvirker firmabilen skatten til de ansatte?
+                  Vi hjelper deg å koble systemene sammen, fra salget slås inn til lønna står på konto.
                 </p>
 
                 <div className="space-y-6 mb-10">
                   <div className="flex gap-4 p-4 bg-white rounded-xl border border-slate-200 shadow-sm transition-shadow hover:shadow-md">
                     <div className="p-3 bg-blue-50 text-blue-600 rounded-lg h-fit">
-                      <Lightbulb className="w-6 h-6" />
+                      <Store className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 text-lg">Strategisk Rådgivning</h4>
+                      <h4 className="font-bold text-slate-900 text-lg">Butikk & Kontant</h4>
                       <p className="text-slate-600 text-sm mt-1">
-                        Vi hjelper deg å tolke tallene slik at du kan styre bedriften mot økt lønnsomhet og vekst. Hva tjener du egentlig penger på?
+                        Vi hjelper deg med oppsett av systemer som <strong>Finago</strong> og integrasjon mot <strong>PowerOffice Go</strong>. Slik sikrer vi at kontantsalg og dagsoppgjør flyter automatisk.
                       </p>
                     </div>
                   </div>
 
                   <div className="flex gap-4 p-4 bg-white rounded-xl border border-slate-200 shadow-sm transition-shadow hover:shadow-md">
                     <div className="p-3 bg-green-50 text-green-600 rounded-lg h-fit">
-                      <LineChart className="w-6 h-6" />
+                      <Car className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 text-lg">Full Oversikt</h4>
+                      <h4 className="font-bold text-slate-900 text-lg">Lønnsregulativ & Bil</h4>
                       <p className="text-slate-600 text-sm mt-1">
-                        Få kontroll på likviditet og nøkkeltall. Vi sørger for at du alltid har et oppdatert styringsgrunnlag tilgjengelig.
+                        Firmabil, diett eller komplekse tillegg? Vi har full kontroll på lønnsregulativet, slik at skatt og feriepenger alltid blir riktig beregnet.
                       </p>
                     </div>
                   </div>
@@ -438,7 +441,7 @@ export function LonnPage() {
                   onClick={() => navigate('/kontakt')}
                   className="inline-flex items-center gap-2 text-[#E86C1F] font-bold text-lg hover:gap-3 transition-all group w-fit"
                 >
-                  Book et strategimøte med Ingvald
+                  Snakk med oss om systemer
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
