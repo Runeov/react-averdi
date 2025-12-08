@@ -15,8 +15,8 @@ export function LonnPage() {
         title: "Lønnskjøring & A-melding",
         shortDesc: "Korrekt og til rett tid",
         icon: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800",
-        content: "Vi tar oss av hele lønnsprosessen, fra beregning av lønn og skattetrekk til utsendelse av lønnsslipper og innrapportering av A-melding. Vi sørger for at alle frister overholdes.",
-        bullets: ["Månedlig lønnskjøring", "Automatisk A-melding til Altinn", "Digitale lønnsslipper til ansatte", "Håndtering av feriepenger"],
+        content: "Vi tar oss av hele lønnsprosessen, fra beregning av lønn og skattetrekk til utsendelse av lønnsslipper og innrapportering av A-melding. Vi sørger for at alle frister overholdes. Vårt lønnssystem håndterer alt fra lønnskjøring til rapportering til myndighetene.",
+        bullets: ["Månedlig lønnskjøring", "Automatisk A-melding til Altinn", "Digitale lønnsslipper til ansatte", "Håndtering av feriepenger", "Feriepengeberegning"],
         link: "/kontakt",
         linkText: "Få et tilbud på lønnskjøring"
       },
@@ -25,8 +25,8 @@ export function LonnPage() {
         title: "Reiseregninger & Utlegg",
         shortDesc: "Enkel digital håndtering",
         icon: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800",
-        content: "Gjør det enkelt for dine ansatte å registrere reiser og utlegg. Vi bruker moderne systemer (som Tripletex/PowerOffice Go appen) som lar ansatte ta bilde av kvitteringer og sende inn direkte fra mobilen.",
-        bullets: ["App-basert registrering", "Korrekt behandling av dietter og satser", "Raskere tilbakebetaling til ansatte", "Full oversikt og kontroll"],
+        content: "Gjør det enkelt for dine ansatte å registrere reiser og utlegg. Vi bruker moderne systemer (som Tripletex/PowerOffice Go appen) som lar ansatte ta bilde av kvitteringer og sende inn direkte fra mobilen. A-melding og skatterapportering inngår i vårt komplette lønnstilbud.",
+        bullets: ["App-basert registrering", "Korrekt behandling av dietter og satser", "Raskere tilbakebetaling til ansatte", "Full oversikt og kontroll", "A-melding og skatterapportering"],
         link: "/kontakt",
         linkText: "Snakk med oss om digitale løsninger"
       }

@@ -15,8 +15,8 @@ export function RaadgivingPage() {
         title: "Strategisk Rådgivning",
         shortDesc: "Planlegg for vekst",
         icon: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800",
-        content: "Vi hjelper deg å løfte blikket fra den daglige driften. Sammen legger vi en strategi for hvordan bedriften din skal vokse, øke lønnsomheten og nå sine mål. Vi er din sparringspartner i viktige beslutninger.",
-        bullets: ["Forretningsutvikling", "Lønnsomhetsanalyser", "Strategisk planlegging", "Styreadbeid og ledelse"],
+        content: "Vi hjelper deg å løfte blikket fra den daglige driften. Sammen legger vi en strategi for hvordan bedriften din skal vokse, øke lønnsomheten og nå sine mål. Vi er din sparringspartner i viktige beslutninger. Med vår erfaring gir vi deg strategisk rådgivning som hjelper bedriften din å vokse.",
+        bullets: ["Forretningsutvikling", "Lønnsomhetsanalyser", "Strategisk planlegging", "Styreadbeid og ledelse", "Budsjett og prognoser", "Verdivurdering"],
         link: "/kontakt",
         linkText: "Book et strategimøte"
       },
@@ -25,8 +25,8 @@ export function RaadgivingPage() {
         title: "Starte bedrift?",
         shortDesc: "Gründerhjelpen",
         icon: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800",
-        content: "Å starte egen bedrift er spennende, men det er mange fallgruver. Vi hjelper deg med valg av selskapsform, registrering i Brønnøysundregistrene, oppsett av rutiner og budsjetter for oppstartsfasen.",
-        bullets: ["Valg av selskapsform (AS vs ENK)", "Stiftelsesdokumenter", "Forretningsplan", "Søknad om støtte (Sametinget/Innovasjon Norge)"],
+        content: "Å starte egen bedrift er spennende, men det er mange fallgruver. Vi hjelper deg med valg av selskapsform, registrering i Brønnøysundregistrene, oppsett av rutiner og budsjetter for oppstartsfasen. Skatteoptimalisering og strukturering er viktige deler av vårt oppstartstilbud.",
+        bullets: ["Valg av selskapsform (AS vs ENK)", "Stiftelsesdokumenter", "Forretningsplan", "Søknad om støtte (Sametinget/Innovasjon Norge)", "Skatteoptimalisering og strukturering"],
         link: "/kontakt",
         linkText: "Få hjelp til oppstart"
       }

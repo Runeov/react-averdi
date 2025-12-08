@@ -15,8 +15,8 @@ export function FaktureringPage() {
         title: "Fakturering & Oppfølging",
         shortDesc: "Få betalt i tide",
         icon: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800",
-        content: "Vi sørger for at fakturaene dine går ut automatisk og korrekt. Ved å bruke moderne løsninger som EHF og Vipps-faktura, gjør vi det enklere for kundene dine å betale, noe som reduserer tiden du må vente på pengene.",
-        bullets: ["Utsendelse via EHF, eFaktura eller e-post", "Automatiske betalingspåminnelser", "Full oversikt over utestående fordringer", "Integrasjon mot bank"],
+        content: "Vi sørger for at fakturaene dine går ut automatisk og korrekt. Ved å bruke moderne løsninger som EHF og Vipps-faktura, gjør vi det enklere for kundene dine å betale, noe som reduserer tiden du må vente på pengene. Våre systemer automatiserer fakturautsendelse og purringer for bedre cash flow.",
+        bullets: ["Utsendelse via EHF, eFaktura eller e-post", "Automatiske betalingspåminnelser", "Full oversikt over utestående fordringer", "Integrasjon mot bank", "Kundeoppfølging"],
         link: "/kontakt",
         linkText: "Få hjelp med fakturering"
       },
@@ -25,8 +25,8 @@ export function FaktureringPage() {
         title: "Purring & Inkasso",
         shortDesc: "Profesjonell innfordring",
         icon: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800",
-        content: "Det er krevende å følge opp kunder som ikke betaler. Vi håndterer purreprosessen profesjonelt og effektivt, og sender saker videre til inkasso ved behov, slik at du slipper den ubehagelige jobben.",
-        bullets: ["Systematisk purreprosess", "Inkassovarsel iht. lovverk", "Sømløs overføring til inkassopartner", "Bevarer kunderelasjonen"],
+        content: "Det er krevende å følge opp kunder som ikke betaler. Vi håndterer purreprosessen profesjonelt og effektivt, og sender saker videre til inkasso ved behov, slik at du slipper den ubehagelige jobben. Påminnelser og inkassooppfølging er en del av vårt komplette faktureringsløsning.",
+        bullets: ["Systematisk purreprosess", "Inkassovarsel iht. lovverk", "Sømløs overføring til inkassopartner", "Bevarer kunderelasjonen", "Påminnelser og inkassooppfølging"],
         link: "/kontakt",
         linkText: "Kontakt oss om innfordring"
       }

@@ -15,8 +15,8 @@ export function RegnskapPage() {
         title: "Løpende Regnskap",
         shortDesc: "Digital bilagsflyt og effektiv bokføring",
         icon: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800",
-        content: "Vi tar oss av hele regnskapsprosessen, fra daglig bokføring til månedsavslutning. Med moderne skybaserte systemer som Tripletex og PowerOffice Go får du alltid oppdatert regnskap tilgjengelig.",
-        bullets: ["Bilagsføring", "MVA-rapportering", "Bankavstemming", "Kontantstrømanalyse"],
+        content: "Vi tar oss av hele regnskapsprosessen, fra daglig bokføring til månedsavslutning. Med moderne skybaserte systemer som Tripletex og PowerOffice Go får du alltid oppdatert regnskap tilgjengelig. Skybasert regnskap gir deg full systemtilgang og oppdatert økonomioversikt til enhver tid.",
+        bullets: ["Bilagsføring", "MVA-rapportering", "Bankavstemming", "Kontantstrømanalyse", "Remittering og prosjektregnskap"],
         link: "/kontakt",
         linkText: "Få et tilbud på regnskap"
       },
@@ -25,8 +25,8 @@ export function RegnskapPage() {
         title: "Årsoppgjør & Skatt",
         shortDesc: "Vi tar oss av årsoppgjøret og dialog med Altinn",
         icon: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-        content: "Årsoppgjøret er kritisk for å sikre at alt er riktig rapportert. Vi håndterer hele prosessen fra skattemelding til innsending av årsregnskap, slik at du kan være trygg på at alt er i orden.",
-        bullets: ["Skattemelding", "Årsregnskap", "Aksjonærregister", "Revisjonsforberedelse"],
+        content: "Årsoppgjøret er kritisk for å sikre at alt er riktig rapportert. Vi håndterer hele prosessen fra skattemelding til innsending av årsregnskap, slik at du kan være trygg på at alt er i orden. Perioderapportering og revisjonsforberedelse inngår i vårt komplette tilbud.",
+        bullets: ["Skattemelding", "Årsregnskap", "Aksjonærregister", "Revisjonsforberedelse", "Perioderapportering"],
         link: "/kontakt",
         linkText: "Snakk med oss om årsoppgjør"
       }
