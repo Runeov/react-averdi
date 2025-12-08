@@ -13,6 +13,11 @@ import { MeetOurTeamPage } from './pages/Om-Oss';
 // Lazy Load pages (Load only when clicked)
 const KunnskapsbankPage = lazy(() => import('./pages/KunnskapsbankPage').then(m => ({ default: m.KunnskapsbankPage })));
 
+// Kunnskapsbank Hub Pages
+const SametingetHub = lazy(() => import('./pages/kunnskapsbank/SametingetHub').then(m => ({ default: m.SametingetHub })));
+const BedriftHub = lazy(() => import('./pages/kunnskapsbank/BedriftHub').then(m => ({ default: m.BedriftHub })));
+const OrganisasjonHub = lazy(() => import('./pages/kunnskapsbank/OrganisasjonHub').then(m => ({ default: m.OrganisasjonHub })));
+
 // Services Pages
 const RegnskapPage = lazy(() => import('./pages/services/RegnskapPage').then(m => ({ default: m.RegnskapPage })));
 const LonnPage = lazy(() => import('./pages/services/LonnPage').then(m => ({ default: m.LonnPage })));
@@ -114,7 +119,12 @@ export default function App() {
             <Route path="/kontakt" element={<ContactPage />} />
             <Route path="/kunnskapsbank/tiltakssonen" element={<TiltakssonenGuidePage />} />
 
-            {/* NEW HUB & SPOKE ROUTES */}
+           {/* KUNNSKAPSBANK HUB PAGES */}
+           <Route path="/kunnskapsbank/sametinget" element={<SametingetHub />} />
+           <Route path="/kunnskapsbank/bedrifter" element={<BedriftHub />} />
+           <Route path="/kunnskapsbank/organisasjoner" element={<OrganisasjonHub />} />
+
+           {/* NEW HUB & SPOKE ROUTES */}
             {/* Sametinget Hub */}
             <Route path="/kunnskapsbank/sametinget/kultur-sprak" element={<KulturSprakPage />} />
             <Route path="/kunnskapsbank/sametinget/naeringsstotte" element={<NaeringsstottePage />} />

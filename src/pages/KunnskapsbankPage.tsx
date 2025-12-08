@@ -1,4 +1,4 @@
-import { BookOpen, ArrowRight, Newspaper, Building2, ShoppingBag, Landmark } from 'lucide-react';
+import { BookOpen, ArrowRight, Newspaper, Building2, ShoppingBag, Landmark, Briefcase } from 'lucide-react';
 import { NewsSection } from '../components/NewsSection';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -17,14 +17,14 @@ export function KunnskapsbankPage() {
       badge: "Utvalgt Guide"
     },
     {
-      title: "Handel & Butikkdrift",
-      description: "Full kontroll på varelager, marginer og kassesystemer. Vi hjelper deg å drive lønnsomt, enten du har fysisk butikk eller nettbutikk.",
-      icon: ShoppingBag,
+      title: "Bedrifter & Næringsliv",
+      description: "Komplett veiledning for bedrifter i Nord-Norge. Lær om tiltakssonen, handel, arbeidsgiveravgift og økonomisk styring.",
+      icon: Briefcase,
       color: "text-blue-600",
       bgColor: "bg-blue-50",
       borderColor: "border-blue-100",
       hoverBorder: "hover:border-blue-300",
-      link: "/kunnskapsbank/handel",
+      link: "/kunnskapsbank/bedrifter",
       badge: "Nyhet"
     },
     {
