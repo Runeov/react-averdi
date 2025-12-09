@@ -16,7 +16,7 @@ const KunnskapsbankPage = lazy(() => import('./pages/KunnskapsbankPage').then(m 
 // Kunnskapsbank Hub Pages
 const SametingetHub = lazy(() => import('./pages/kunnskapsbank/SametingetHub').then(m => ({ default: m.SametingetHub })));
 const BedriftHub = lazy(() => import('./pages/kunnskapsbank/BedriftHub').then(m => ({ default: m.BedriftHub })));
-const OrganisasjonHub = lazy(() => import('./pages/kunnskapsbank/OrganisasjonHub').then(m => ({ default: m.OrganisasjonHub })));
+const OrganisasjonHub = lazy(() => import('./pages/kunnskapsbank/hub/OrganisasjonHub'));
 
 // Services Pages
 const RegnskapPage = lazy(() => import('./pages/services/RegnskapPage').then(m => ({ default: m.RegnskapPage })));
@@ -44,7 +44,7 @@ const IdrettslagPage = lazy(() => import('./pages/kunnskapsbank/organisasjoner/i
 // Legacy pages (to be migrated)
 const SametingetPage = lazy(() => import('./pages/SametingetPage').then(m => ({ default: m.SametingetPage })));
 const HandelPage = lazy(() => import('./pages/HandelPage').then(m => ({ default: m.HandelPage })));
-const OrganisasjonPage = lazy(() => import('./pages/OrganisasjonPage').then(m => ({ default: m.OrganisasjonPage })));
+// Legacy OrganisasjonPage removed - using new OrganisasjonHub instead
 const EmployeeProfilePage = lazy(() => import('./pages/EmployeeProfilePage').then(m => ({ default: m.EmployeeProfilePage })));
 const TeamPage = lazy(() => import('./pages/TeamPage').then(m => ({ default: m.TeamPage })));
 // Sametinget Deep Links
@@ -113,7 +113,7 @@ export default function App() {
 <Route path="/om-oss/ansatte/:id" element={<EmployeeProfilePage />} />
 <Route path="/om-oss/team" element={<TeamPage />} />
             <Route path="/kunnskapsbank/handel" element={<HandelPage />} />
-            <Route path="/kunnskapsbank/organisasjoner" element={<OrganisasjonPage />} />
+            {/* Legacy route removed - using new OrganisasjonHub instead */}
             <Route path="/farger" element={<StylesheetPage onBack={() => window.history.back()} />} />
             <Route path="/aktuelt/:slug" element={<ArticlePage />} />
             <Route path="/kontakt" element={<ContactPage />} />

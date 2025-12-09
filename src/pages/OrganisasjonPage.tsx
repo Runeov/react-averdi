@@ -1,4 +1,4 @@
-import { OrganisasjonHub } from '../components/OrganisasjonHub';
+import OrganisasjonHub from './kunnskapsbank/hub/OrganisasjonHub';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
@@ -16,7 +16,7 @@ export function OrganisasjonPage() {
         <meta name="keywords" content="regnskap forening, kasserer idrettslag, momskompensasjon, frivillighetsregisteret, styrearbeid, årsmøte, nord-norge" />
       </Helmet>
       
-      <OrganisasjonHub onBack={() => navigate('/kunnskapsbank')} />
+      <OrganisasjonHub />
     </main>
   );
 }
